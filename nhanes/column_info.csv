@@ -1,0 +1,656 @@
+Variable Name,Variable Description
+AIALANG,Language of the MEC ACASI Interview Instrument
+DMDBORN,In what country {were you/was SP} born?
+DMDCITZN,{Are you/Is SP} a citizen of the United States? [Information about citizenship is being collected by the U.S. Public Health Service to perform health related research. Providing this information is voluntary and is collected under the authority of the Public Health Service Act. There will be no effect on pending immigration or citizenship petitions.]
+DMDEDUC2,(SP Interview Version) What is the highest grade or level of school {you have/SP has} completed or the highest degree {you have/s/he has} received?
+DMDEDUC3,(SP Interview Version) What is the highest grade or level of school {you have/SP has} completed or the highest degree {you have/s/he has} received?
+DMDFMSIZ,Total number of people in the Family
+DMDHHSIZ,Total number of people in the Household
+DMDHRAGE,Age in years of the household reference person at the time of HH screening.  Individuals 85 and over are topcoded at 85 years of age.
+DMDHRBRN,In what country {were you/was NON-SP Head} born?
+DMDHREDU,What is the highest grade or level of school {you have/NON_SP HEAD has} received?
+DMDHRGND,Gender of the household reference person
+DMDHRMAR,Marital Status of household reference person
+DMDHSEDU,What is the highest grade or level of school {you have/NON-SP SPOUSE has completed or the highest degree {you have/he/she has} received
+DMDMARTL,Marital Status
+DMDSCHOL,{Are you/Is SP} now . . .
+DMDYRSUS,Length of time SP has been in the US.
+DMQMILIT,Did {you/SP} ever serve in the Armed Forces of the United States?
+FIAINTRP,Was an interpreter used to conduct the Family interview?
+FIALANG,Language of the Family Interview Instrument
+FIAPROXY,Was a Proxy respondent used in conducting the Family Interview?
+INDFMINC,Total family income (reported as a range value in dollars)
+INDFMPIR,Poverty income ratio (PIR) - a ratio of family income to poverty threshold
+INDHHINC,Total household income (reported as a range value in dollars)
+MIAINTRP,Was an interpreter used to conduct the MEC CAPI interview?
+MIALANG,Language of the CAPI MEC Interview Instrument
+MIAPROXY,Was a Proxy respondent used in conducting the MEC CAPI Interview?
+RIAGENDR,Gender of the sample person
+RIDAGEEX,Best age in months at date of examination for individuals under 85 years of age at screening.
+RIDAGEMN,Best age in months at date of screening for individuals under 85 years of age.
+RIDAGEYR,Best age in years of the sample person at time of HH screening.  Individuals 85 and over are topcoded at 85 years of age.
+RIDEXMON,"Six month time period when the examination was performed - two categories: November 1 through April 30, May 1 through October 31."
+RIDEXPRG,Pregnancy status at the time of MEC exam.
+RIDRETH1,Recode of reported race and ethnicity information.
+RIDSTATR,Interview and Examination Status of the Sample Person.
+SDDSRVYR,Data Release Number.
+SDMVPSU,Masked Variance Unit Pseudo-PSU variable for variance estimation
+SDMVSTRA,Masked Variance Unit Pseudo-Stratum variable for variance estimation
+SEQN,Respondent sequence number.
+SIAINTRP,Was an interpreter used to conduct the Sample Person (SP) interview?
+SIALANG,Language of the Sample Person Interview Instrument
+SIAPROXY,Was a Proxy respondent used in conducting the Sample Person (SP) interview?
+WTINT2YR,Interviewed Sample Persons.
+WTMEC2YR,Both Interviewed and MEC Examined Sample Persons.
+DMDBORN2,In what country {were you/was SP} born?
+DMDHRBR2,In what country {were you/was NON-SP Head} born?
+INDFMIN2,Total family income (reported as a range value in dollars)
+INDHHIN2,Total household income (reported as a range value in dollars)
+DMDEDUC,(SP Interview Version) What is the highest grade or level of school {you have/SP has} completed or the highest degree {you have/s/he has} received?
+RIDRETH2,Linked NH3 Race and Ethnicity Recode.
+RIDPREG,Pregnancy status variable based on all source data. NOTE: This is the previous pregnancy status recode variable. RIDPREG is a more conservative pregnancy status variable. Please review the file documentation.
+WTINT4YR,Interviewed Sample Persons. Used for 1999-2002 data collection years only.
+WTMEC4YR,Both Interviewed and MEC Examined Sample Persons. Used for 1999-2002 data collection years only.
+DMAETHN,Logical Imputation Flag for Ethnicity
+DMARACE,Logical Imputation Flag for Race Recode
+SDJ1REPN,Jack Knife Replicate Number
+WTIREP01,Interview Weight Jack Knife Replicate 01
+WTIREP02,Interview Weight Jack Knife Replicate 02
+WTIREP03,Interview Weight Jack Knife Replicate 03
+WTIREP04,Interview Weight Jack Knife Replicate 04
+WTIREP05,Interview Weight Jack Knife Replicate 05
+WTIREP06,Interview Weight Jack Knife Replicate 06
+WTIREP07,Interview Weight Jack Knife Replicate 07
+WTIREP08,Interview Weight Jack Knife Replicate 08
+WTIREP09,Interview Weight Jack Knife Replicate 09
+WTIREP10,Interview Weight Jack Knife Replicate 10
+WTIREP11,Interview Weight Jack Knife Replicate 11
+WTIREP12,Interview Weight Jack Knife Replicate 12
+WTIREP13,Interview Weight Jack Knife Replicate 13
+WTIREP14,Interview Weight Jack Knife Replicate 14
+WTIREP15,Interview Weight Jack Knife Replicate 15
+WTIREP16,Interview Weight Jack Knife Replicate 16
+WTIREP17,Interview Weight Jack Knife Replicate 17
+WTIREP18,Interview Weight Jack Knife Replicate 18
+WTIREP19,Interview Weight Jack Knife Replicate 19
+WTIREP20,Interview Weight Jack Knife Replicate 20
+WTIREP21,Interview Weight Jack Knife Replicate 21
+WTIREP22,Interview Weight Jack Knife Replicate 22
+WTIREP23,Interview Weight Jack Knife Replicate 23
+WTIREP24,Interview Weight Jack Knife Replicate 24
+WTIREP25,Interview Weight Jack Knife Replicate 25
+WTIREP26,Interview Weight Jack Knife Replicate 26
+WTIREP27,Interview Weight Jack Knife Replicate 27
+WTIREP28,Interview Weight Jack Knife Replicate 28
+WTIREP29,Interview Weight Jack Knife Replicate 29
+WTIREP30,Interview Weight Jack Knife Replicate 30
+WTIREP31,Interview Weight Jack Knife Replicate 31
+WTIREP32,Interview Weight Jack Knife Replicate 32
+WTIREP33,Interview Weight Jack Knife Replicate 33
+WTIREP34,Interview Weight Jack Knife Replicate 34
+WTIREP35,Interview Weight Jack Knife Replicate 35
+WTIREP36,Interview Weight Jack Knife Replicate 36
+WTIREP37,Interview Weight Jack Knife Replicate 37
+WTIREP38,Interview Weight Jack Knife Replicate 38
+WTIREP39,Interview Weight Jack Knife Replicate 39
+WTIREP40,Interview Weight Jack Knife Replicate 40
+WTIREP41,Interview Weight Jack Knife Replicate 41
+WTIREP42,Interview Weight Jack Knife Replicate 42
+WTIREP43,Interview Weight Jack Knife Replicate 43
+WTIREP44,Interview Weight Jack Knife Replicate 44
+WTIREP45,Interview Weight Jack Knife Replicate 45
+WTIREP46,Interview Weight Jack Knife Replicate 46
+WTIREP47,Interview Weight Jack Knife Replicate 47
+WTIREP48,Interview Weight Jack Knife Replicate 48
+WTIREP49,Interview Weight Jack Knife Replicate 49
+WTIREP50,Interview Weight Jack Knife Replicate 50
+WTIREP51,Interview Weight Jack Knife Replicate 51
+WTIREP52,Interview Weight Jack Knife Replicate 52
+WTMREP01,MEC Exam Weight Jack Knife Replicate 01
+WTMREP02,MEC Exam Weight Jack Knife Replicate 02
+WTMREP03,MEC Exam Weight Jack Knife Replicate 03
+WTMREP04,MEC Exam Weight Jack Knife Replicate 04
+WTMREP05,MEC Exam Weight Jack Knife Replicate 05
+WTMREP06,MEC Exam Weight Jack Knife Replicate 06
+WTMREP07,MEC Exam Weight Jack Knife Replicate 07
+WTMREP08,MEC Exam Weight Jack Knife Replicate 08
+WTMREP09,MEC Exam Weight Jack Knife Replicate 09
+WTMREP10,MEC Exam Weight Jack Knife Replicate 10
+WTMREP11,MEC Exam Weight Jack Knife Replicate 11
+WTMREP12,MEC Exam Weight Jack Knife Replicate 12
+WTMREP13,MEC Exam Weight Jack Knife Replicate 13
+WTMREP14,MEC Exam Weight Jack Knife Replicate 14
+WTMREP15,MEC Exam Weight Jack Knife Replicate 15
+WTMREP16,MEC Exam Weight Jack Knife Replicate 16
+WTMREP17,MEC Exam Weight Jack Knife Replicate 17
+WTMREP18,MEC Exam Weight Jack Knife Replicate 18
+WTMREP19,MEC Exam Weight Jack Knife Replicate 19
+WTMREP20,MEC Exam Weight Jack Knife Replicate 20
+WTMREP21,MEC Exam Weight Jack Knife Replicate 21
+WTMREP22,MEC Exam Weight Jack Knife Replicate 22
+WTMREP23,MEC Exam Weight Jack Knife Replicate 23
+WTMREP24,MEC Exam Weight Jack Knife Replicate 24
+WTMREP25,MEC Exam Weight Jack Knife Replicate 25
+WTMREP26,MEC Exam Weight Jack Knife Replicate 26
+WTMREP27,MEC Exam Weight Jack Knife Replicate 27
+WTMREP28,MEC Exam Weight Jack Knife Replicate 28
+WTMREP29,MEC Exam Weight Jack Knife Replicate 29
+WTMREP30,MEC Exam Weight Jack Knife Replicate 30
+WTMREP31,MEC Exam Weight Jack Knife Replicate 31
+WTMREP32,MEC Exam Weight Jack Knife Replicate 32
+WTMREP33,MEC Exam Weight Jack Knife Replicate 33
+WTMREP34,MEC Exam Weight Jack Knife Replicate 34
+WTMREP35,MEC Exam Weight Jack Knife Replicate 35
+WTMREP36,MEC Exam Weight Jack Knife Replicate 36
+WTMREP37,MEC Exam Weight Jack Knife Replicate 37
+WTMREP38,MEC Exam Weight Jack Knife Replicate 38
+WTMREP39,MEC Exam Weight Jack Knife Replicate 39
+WTMREP40,MEC Exam Weight Jack Knife Replicate 40
+WTMREP41,MEC Exam Weight Jack Knife Replicate 41
+WTMREP42,MEC Exam Weight Jack Knife Replicate 42
+WTMREP43,MEC Exam Weight Jack Knife Replicate 43
+WTMREP44,MEC Exam Weight Jack Knife Replicate 44
+WTMREP45,MEC Exam Weight Jack Knife Replicate 45
+WTMREP46,MEC Exam Weight Jack Knife Replicate 46
+WTMREP47,MEC Exam Weight Jack Knife Replicate 47
+WTMREP48,MEC Exam Weight Jack Knife Replicate 48
+WTMREP49,MEC Exam Weight Jack Knife Replicate 49
+WTMREP50,MEC Exam Weight Jack Knife Replicate 50
+WTMREP51,MEC Exam Weight Jack Knife Replicate 51
+WTMREP52,MEC Exam Weight Jack Knife Replicate 52
+DMDEDUC1,(SP Interview Version) What is the highest grade or level of school {you have/SP has} completed or the highest degree {you have/s/he has} received?
+WTSF6F,"Fasting Los Angeles, California Sub-Sample."
+WTSF6F01,Final 6 Year LA Fasting Wt: Rep 01
+WTSF6F02,Final 6 Year LA Fasting Wt: Rep 02
+WTSF6F03,Final 6 Year LA Fasting Wt: Rep 03
+WTSF6F04,Final 6 Year LA Fasting Wt: Rep 04
+WTSF6F05,Final 6 Year LA Fasting Wt: Rep 05
+WTSF6F06,Final 6 Year LA Fasting Wt: Rep 06
+WTSF6F07,Final 6 Year LA Fasting Wt: Rep 07
+WTSF6F08,Final 6 Year LA Fasting Wt: Rep 08
+WTSF6F09,Final 6 Year LA Fasting Wt: Rep 09
+WTSF6F10,Final 6 Year LA Fasting Wt: Rep 10
+WTSF6F11,Final 6 Year LA Fasting Wt: Rep 11
+WTSF6F12,Final 6 Year LA Fasting Wt: Rep 12
+WTSF6F13,Final 6 Year LA Fasting Wt: Rep 13
+WTSF6F14,Final 6 Year LA Fasting Wt: Rep 14
+WTSF6F15,Final 6 Year LA Fasting Wt: Rep 15
+WTSF6F16,Final 6 Year LA Fasting Wt: Rep 16
+WTSF6F17,Final 6 Year LA Fasting Wt: Rep 17
+WTSF6F18,Final 6 Year LA Fasting Wt: Rep 18
+WTSF6F19,Final 6 Year LA Fasting Wt: Rep 19
+WTSF6F20,Final 6 Year LA Fasting Wt: Rep 20
+WTSF6F21,Final 6 Year LA Fasting Wt: Rep 21
+WTSF6F22,Final 6 Year LA Fasting Wt: Rep 22
+WTSF6F23,Final 6 Year LA Fasting Wt: Rep 23
+WTSF6F24,Final 6 Year LA Fasting Wt: Rep 24
+WTSF6F25,Final 6 Year LA Fasting Wt: Rep 25
+WTSF6F26,Final 6 Year LA Fasting Wt: Rep 26
+WTSF6F27,Final 6 Year LA Fasting Wt: Rep 27
+WTSF6F28,Final 6 Year LA Fasting Wt: Rep 28
+WTSF6F29,Final 6 Year LA Fasting Wt: Rep 29
+WTSF6F30,Final 6 Year LA Fasting Wt: Rep 30
+WTSF6F31,Final 6 Year LA Fasting Wt: Rep 31
+WTSF6F32,Final 6 Year LA Fasting Wt: Rep 32
+WTSF6F33,Final 6 Year LA Fasting Wt: Rep 33
+WTSF6F34,Final 6 Year LA Fasting Wt: Rep 34
+WTSF6F35,Final 6 Year LA Fasting Wt: Rep 35
+WTSF6F36,Final 6 Year LA Fasting Wt: Rep 36
+WTSF6F37,Final 6 Year LA Fasting Wt: Rep 37
+WTSF6F38,Final 6 Year LA Fasting Wt: Rep 38
+WTSF6F39,Final 6 Year LA Fasting Wt: Rep 39
+WTSF6F40,Final 6 Year LA Fasting Wt: Rep 40
+WTSF6F41,Final 6 Year LA Fasting Wt: Rep 41
+WTSF6F42,Final 6 Year LA Fasting Wt: Rep 42
+WTSF6F43,Final 6 Year LA Fasting Wt: Rep 43
+WTSF6F44,Final 6 Year LA Fasting Wt: Rep 44
+WTSF6M,"Both Interviewed and MEC Examined Sample Persons in Los Angeles, CA."
+WTSF6M01,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 1"
+WTSF6M02,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 2"
+WTSF6M03,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 3"
+WTSF6M04,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 4"
+WTSF6M05,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 5"
+WTSF6M06,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 6"
+WTSF6M07,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 7"
+WTSF6M08,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 8"
+WTSF6M09,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 9"
+WTSF6M10,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 10"
+WTSF6M11,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 11"
+WTSF6M12,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 12"
+WTSF6M13,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 13"
+WTSF6M14,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 14"
+WTSF6M15,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 15"
+WTSF6M16,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 16"
+WTSF6M17,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 17"
+WTSF6M18,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 18"
+WTSF6M19,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 19"
+WTSF6M20,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 20"
+WTSF6M21,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 21"
+WTSF6M22,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 22"
+WTSF6M23,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 23"
+WTSF6M24,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 24"
+WTSF6M25,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 25"
+WTSF6M26,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 26"
+WTSF6M27,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 27"
+WTSF6M28,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 28"
+WTSF6M29,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 29"
+WTSF6M30,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 30"
+WTSF6M31,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 31"
+WTSF6M32,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 32"
+WTSF6M33,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 33"
+WTSF6M34,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 34"
+WTSF6M35,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 35"
+WTSF6M36,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 36"
+WTSF6M37,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 37"
+WTSF6M38,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 38"
+WTSF6M39,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 39"
+WTSF6M40,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 40"
+WTSF6M41,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 41"
+WTSF6M42,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 42"
+WTSF6M43,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 43"
+WTSF6M44,"Final 6 Year Los Angeles, California MEC Exam Replicate Weight 44"
+WTSF6Q,"Interviewed Sample Persons in Los Angeles, CA."
+WTSF6Q01,"Final 6 Year Los Angeles, California Interview Replicate Weight 1"
+WTSF6Q02,"Final 6 Year Los Angeles, California Interview Replicate Weight 2"
+WTSF6Q03,"Final 6 Year Los Angeles, California Interview Replicate Weight 3"
+WTSF6Q04,"Final 6 Year Los Angeles, California Interview Replicate Weight 4"
+WTSF6Q05,"Final 6 Year Los Angeles, California Interview Replicate Weight 5"
+WTSF6Q06,"Final 6 Year Los Angeles, California Interview Replicate Weight 6"
+WTSF6Q07,"Final 6 Year Los Angeles, California Interview Replicate Weight 7"
+WTSF6Q08,"Final 6 Year Los Angeles, California Interview Replicate Weight 8"
+WTSF6Q09,"Final 6 Year Los Angeles, California Interview Replicate Weight 9"
+WTSF6Q10,"Final 6 Year Los Angeles, California Interview Replicate Weight 10"
+WTSF6Q11,"Final 6 Year Los Angeles, California Interview Replicate Weight 11"
+WTSF6Q12,"Final 6 Year Los Angeles, California Interview Replicate Weight 12"
+WTSF6Q13,"Final 6 Year Los Angeles, California Interview Replicate Weight 13"
+WTSF6Q14,"Final 6 Year Los Angeles, California Interview Replicate Weight 14"
+WTSF6Q15,"Final 6 Year Los Angeles, California Interview Replicate Weight 15"
+WTSF6Q16,"Final 6 Year Los Angeles, California Interview Replicate Weight 16"
+WTSF6Q17,"Final 6 Year Los Angeles, California Interview Replicate Weight 17"
+WTSF6Q18,"Final 6 Year Los Angeles, California Interview Replicate Weight 18"
+WTSF6Q19,"Final 6 Year Los Angeles, California Interview Replicate Weight 19"
+WTSF6Q20,"Final 6 Year Los Angeles, California Interview Replicate Weight 20"
+WTSF6Q21,"Final 6 Year Los Angeles, California Interview Replicate Weight 21"
+WTSF6Q22,"Final 6 Year Los Angeles, California Interview Replicate Weight 22"
+WTSF6Q23,"Final 6 Year Los Angeles, California Interview Replicate Weight 23"
+WTSF6Q24,"Final 6 Year Los Angeles, California Interview Replicate Weight 24"
+WTSF6Q25,"Final 6 Year Los Angeles, California Interview Replicate Weight 25"
+WTSF6Q26,"Final 6 Year Los Angeles, California Interview Replicate Weight 26"
+WTSF6Q27,"Final 6 Year Los Angeles, California Interview Replicate Weight 27"
+WTSF6Q28,"Final 6 Year Los Angeles, California Interview Replicate Weight 28"
+WTSF6Q29,"Final 6 Year Los Angeles, California Interview Replicate Weight 29"
+WTSF6Q30,"Final 6 Year Los Angeles, California Interview Replicate Weight 30"
+WTSF6Q31,"Final 6 Year Los Angeles, California Interview Replicate Weight 31"
+WTSF6Q32,"Final 6 Year Los Angeles, California Interview Replicate Weight 32"
+WTSF6Q33,"Final 6 Year Los Angeles, California Interview Replicate Weight 33"
+WTSF6Q34,"Final 6 Year Los Angeles, California Interview Replicate Weight 34"
+WTSF6Q35,"Final 6 Year Los Angeles, California Interview Replicate Weight 35"
+WTSF6Q36,"Final 6 Year Los Angeles, California Interview Replicate Weight 36"
+WTSF6Q37,"Final 6 Year Los Angeles, California Interview Replicate Weight 37"
+WTSF6Q38,"Final 6 Year Los Angeles, California Interview Replicate Weight 38"
+WTSF6Q39,"Final 6 Year Los Angeles, California Interview Replicate Weight 39"
+WTSF6Q40,"Final 6 Year Los Angeles, California Interview Replicate Weight 40"
+WTSF6Q41,"Final 6 Year Los Angeles, California Interview Replicate Weight 41"
+WTSF6Q42,"Final 6 Year Los Angeles, California Interview Replicate Weight 42"
+WTSF6Q43,"Final 6 Year Los Angeles, California Interview Replicate Weight 43"
+WTSF6Q44,"Final 6 Year Los Angeles, California Interview Replicate Weight 44"
+WTSTVPSU,Taylor Series-Variance PSU Identifier
+WTSVSTRA,Taylor Series-Variance Strata Identifier
+AIALANGA,Language of the MEC ACASI Interview Instrument
+DMDBORN4,In what country {were you/was SP} born?
+DMDHHSZA,Number of children aged 5 years or younger in the household
+DMDHHSZB,Number of children aged 6-17 years old in the household
+DMDHHSZE,Number of adults aged 60 years or older in the household
+DMDHRBR4,HH reference person's country of birth
+DMQADFC,"Did {you/SP} ever serve in a foreign country during a time of armed conflict or on a humanitarian or peace-keeping mission? (This would include National Guard or reserve or active duty monitoring or conducting peace keeping operations in Bosnia and Kosovo, in the Sinai between Egypt and Israel, or in response to the 2004 tsunami or Haiti in 2010.)"
+DMQMILIZ,"{Have you/Has SP} ever served on active duty in the U.S. Armed Forces, military Reserves, or National Guard? (Active duty does not include training for the Reserves or National Guard, but does include activation, for service in the U.S. or in a foreign country, in support of military or humanitarian operations.)"
+RIDEXAGM,Age in months of the participant at the time of examination. Reported for persons aged 19 years or younger at the time of examination.
+RIDEXAGY,Age in years of the participant at the time of examination. Reported for persons aged 2-19 years at the time of screening.
+RIDRETH3,"Recode of reported race and Hispanic origin information, with Non-Hispanic Asian Category"
+LATVPSU,Variance unit: PSU variable for variance estimation
+LATVSTRA,Variance unit: stratum variable for variance estimation
+WTLAF8YR,"Subsample 8-year fasting weight for participants aged 12 years and older who were examined in the morning sessions in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLAI8YR,"Full sample 8-year interview weight for participants in Los Angeles, California."
+WTLAM8YR,"Full sample 8-year MEC exam weight for participants in Los Angeles, California."
+WTLF8R01,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 01 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R02,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 02 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R03,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 03 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R04,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 04 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R05,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 05 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R06,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 06 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R07,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 07 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R08,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 08 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R09,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 09 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R10,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 10 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R11,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 11 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R12,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 12 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R13,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 13 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R14,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 14 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R15,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 15 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R16,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 16 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R17,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 17 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R18,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 18 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R19,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 19 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R20,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 20 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R21,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 21 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R22,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 22 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R23,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 23 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R24,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 24 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R25,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 25 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R26,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 26 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R27,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 27 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R28,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 28 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R29,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 29 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R30,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 30 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R31,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 31 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R32,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 32 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R33,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 33 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R34,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 34 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R35,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 35 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R36,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 36 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R37,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 37 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R38,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 38 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R39,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 39 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R40,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 40 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R41,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 41 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R42,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 42 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R43,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 43 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R44,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 44 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R45,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 45 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R46,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 46 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R47,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 47 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R48,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 48 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R49,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 49 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R50,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 50 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R51,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 51 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLF8R52,"8-year fasting weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 52 for fasting subsample in Los Angeles, California.
+A missing value indicates the participant was not included in the fasting subsample."
+WTLI8R01,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 01 for participants in Los Angeles, California."
+WTLI8R02,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 02 for participants in Los Angeles, California."
+WTLI8R03,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 03 for participants in Los Angeles, California."
+WTLI8R04,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 04 for participants in Los Angeles, California."
+WTLI8R05,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 05 for participants in Los Angeles, California."
+WTLI8R06,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 06 for participants in Los Angeles, California."
+WTLI8R07,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 07 for participants in Los Angeles, California."
+WTLI8R08,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 08 for participants in Los Angeles, California."
+WTLI8R09,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 09 for participants in Los Angeles, California."
+WTLI8R10,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 10 for participants in Los Angeles, California."
+WTLI8R11,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 11 for participants in Los Angeles, California."
+WTLI8R12,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 12 for participants in Los Angeles, California."
+WTLI8R13,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 13 for participants in Los Angeles, California."
+WTLI8R14,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 14 for participants in Los Angeles, California."
+WTLI8R15,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 15 for participants in Los Angeles, California."
+WTLI8R16,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 16 for participants in Los Angeles, California."
+WTLI8R17,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 17 for participants in Los Angeles, California."
+WTLI8R18,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 18 for participants in Los Angeles, California."
+WTLI8R19,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 19 for participants in Los Angeles, California."
+WTLI8R20,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 20 for participants in Los Angeles, California."
+WTLI8R21,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 21 for participants in Los Angeles, California."
+WTLI8R22,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 22 for participants in Los Angeles, California."
+WTLI8R23,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 23 for participants in Los Angeles, California."
+WTLI8R24,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 24 for participants in Los Angeles, California."
+WTLI8R25,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 25 for participants in Los Angeles, California."
+WTLI8R26,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 26 for participants in Los Angeles, California."
+WTLI8R27,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 27 for participants in Los Angeles, California."
+WTLI8R28,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 28 for participants in Los Angeles, California."
+WTLI8R29,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 29 for participants in Los Angeles, California."
+WTLI8R30,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 30 for participants in Los Angeles, California."
+WTLI8R31,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 31 for participants in Los Angeles, California."
+WTLI8R32,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 32 for participants in Los Angeles, California."
+WTLI8R33,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 33 for participants in Los Angeles, California."
+WTLI8R34,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 34 for participants in Los Angeles, California."
+WTLI8R35,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 35 for participants in Los Angeles, California."
+WTLI8R36,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 36 for participants in Los Angeles, California."
+WTLI8R37,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 37 for participants in Los Angeles, California."
+WTLI8R38,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 38 for participants in Los Angeles, California."
+WTLI8R39,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 39 for participants in Los Angeles, California."
+WTLI8R40,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 40 for participants in Los Angeles, California."
+WTLI8R41,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 41 for participants in Los Angeles, California."
+WTLI8R42,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 42 for participants in Los Angeles, California."
+WTLI8R43,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 43 for participants in Los Angeles, California."
+WTLI8R44,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 44 for participants in Los Angeles, California."
+WTLI8R45,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 45 for participants in Los Angeles, California."
+WTLI8R46,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 46 for participants in Los Angeles, California."
+WTLI8R47,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 47 for participants in Los Angeles, California."
+WTLI8R48,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 48 for participants in Los Angeles, California."
+WTLI8R49,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 49 for participants in Los Angeles, California."
+WTLI8R50,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 50 for participants in Los Angeles, California."
+WTLI8R51,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 51 for participants in Los Angeles, California."
+WTLI8R52,"8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 52 for participants in Los Angeles, California."
+WTLM8R01,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 01 for participants in Los Angeles, California."
+WTLM8R02,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 02 for participants in Los Angeles, California."
+WTLM8R03,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 03 for participants in Los Angeles, California."
+WTLM8R04,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 04 for participants in Los Angeles, California."
+WTLM8R05,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 05 for participants in Los Angeles, California."
+WTLM8R06,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 06 for participants in Los Angeles, California."
+WTLM8R07,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 07 for participants in Los Angeles, California."
+WTLM8R08,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 08 for participants in Los Angeles, California."
+WTLM8R09,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 09 for participants in Los Angeles, California."
+WTLM8R10,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 10 for participants in Los Angeles, California."
+WTLM8R11,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 11 for participants in Los Angeles, California."
+WTLM8R12,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 12 for participants in Los Angeles, California."
+WTLM8R13,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 13 for participants in Los Angeles, California."
+WTLM8R14,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 14 for participants in Los Angeles, California."
+WTLM8R15,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 15 for participants in Los Angeles, California."
+WTLM8R16,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 16 for participants in Los Angeles, California."
+WTLM8R17,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 17 for participants in Los Angeles, California."
+WTLM8R18,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 18 for participants in Los Angeles, California."
+WTLM8R19,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 19 for participants in Los Angeles, California."
+WTLM8R20,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 20 for participants in Los Angeles, California."
+WTLM8R21,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 21 for participants in Los Angeles, California."
+WTLM8R22,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 22 for participants in Los Angeles, California."
+WTLM8R23,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 23 for participants in Los Angeles, California."
+WTLM8R24,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 24 for participants in Los Angeles, California."
+WTLM8R25,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 25 for participants in Los Angeles, California."
+WTLM8R26,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 26 for participants in Los Angeles, California."
+WTLM8R27,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 27 for participants in Los Angeles, California."
+WTLM8R28,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 28 for participants in Los Angeles, California."
+WTLM8R29,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 29 for participants in Los Angeles, California."
+WTLM8R30,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 30 for participants in Los Angeles, California."
+WTLM8R31,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 31 for participants in Los Angeles, California."
+WTLM8R32,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 32 for participants in Los Angeles, California."
+WTLM8R33,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 33 for participants in Los Angeles, California."
+WTLM8R34,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 34 for participants in Los Angeles, California."
+WTLM8R35,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 35 for participants in Los Angeles, California."
+WTLM8R36,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 36 for participants in Los Angeles, California."
+WTLM8R37,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 37 for participants in Los Angeles, California."
+WTLM8R38,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 38 for participants in Los Angeles, California."
+WTLM8R39,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 39 for participants in Los Angeles, California."
+WTLM8R40,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 40 for participants in Los Angeles, California."
+WTLM8R41,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 41 for participants in Los Angeles, California."
+WTLM8R42,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 42 for participants in Los Angeles, California."
+WTLM8R43,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 43 for participants in Los Angeles, California."
+WTLM8R44,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 44 for participants in Los Angeles, California."
+WTLM8R45,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 45 for participants in Los Angeles, California."
+WTLM8R46,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 46 for participants in Los Angeles, California."
+WTLM8R47,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 47 for participants in Los Angeles, California."
+WTLM8R48,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 48 for participants in Los Angeles, California."
+WTLM8R49,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 49 for participants in Los Angeles, California."
+WTLM8R50,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 50 for participants in Los Angeles, California."
+WTLM8R51,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 51 for participants in Los Angeles, California."
+WTLM8R52,"8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 52 for participants in Los Angeles, California."
+CATVPSU,Variance unit: PSU variable for variance estimation
+CATVSTRA,Variance unit: stratum variable for variance estimation
+WTCAI8YR,Full sample 8-year interview weight for participants in California.
+WTCAM8YR,Full sample 8-year MEC exam weight for participants in California.
+WTCI8R01,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 01 for participants in California.
+WTCI8R02,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 02 for participants in California.
+WTCI8R03,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 03 for participants in California.
+WTCI8R04,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 04 for participants in California.
+WTCI8R05,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 05 for participants in California.
+WTCI8R06,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 06 for participants in California.
+WTCI8R07,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 07 for participants in California.
+WTCI8R08,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 08 for participants in California.
+WTCI8R09,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 09 for participants in California.
+WTCI8R10,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 10 for participants in California.
+WTCI8R11,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 11 for participants in California.
+WTCI8R12,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 12 for participants in California.
+WTCI8R13,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 13 for participants in California.
+WTCI8R14,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 14 for participants in California.
+WTCI8R15,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 15 for participants in California.
+WTCI8R16,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 16 for participants in California.
+WTCI8R17,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 17 for participants in California.
+WTCI8R18,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 18 for participants in California.
+WTCI8R19,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 19 for participants in California.
+WTCI8R20,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 20 for participants in California.
+WTCI8R21,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 21 for participants in California.
+WTCI8R22,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 22 for participants in California.
+WTCI8R23,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 23 for participants in California.
+WTCI8R24,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 24 for participants in California.
+WTCI8R25,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 25 for participants in California.
+WTCI8R26,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 26 for participants in California.
+WTCI8R27,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 27 for participants in California.
+WTCI8R28,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 28 for participants in California.
+WTCI8R29,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 29 for participants in California.
+WTCI8R30,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 30 for participants in California.
+WTCI8R31,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 31 for participants in California.
+WTCI8R32,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 32 for participants in California.
+WTCI8R33,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 33 for participants in California.
+WTCI8R34,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 34 for participants in California.
+WTCI8R35,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 35 for participants in California.
+WTCI8R36,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 36 for participants in California.
+WTCI8R37,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 37 for participants in California.
+WTCI8R38,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 38 for participants in California.
+WTCI8R39,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 39 for participants in California.
+WTCI8R40,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 40 for participants in California.
+WTCI8R41,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 41 for participants in California.
+WTCI8R42,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 42 for participants in California.
+WTCI8R43,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 43 for participants in California.
+WTCI8R44,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 44 for participants in California.
+WTCI8R45,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 45 for participants in California.
+WTCI8R46,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 46 for participants in California.
+WTCI8R47,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 47 for participants in California.
+WTCI8R48,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 48 for participants in California.
+WTCI8R49,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 49 for participants in California.
+WTCI8R50,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 50 for participants in California.
+WTCI8R51,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 51 for participants in California.
+WTCI8R52,8-year interview weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 52 for participants in California.
+WTCM8R01,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 01 for participants in California.
+WTCM8R02,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 02 for participants in California.
+WTCM8R03,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 03 for participants in California.
+WTCM8R04,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 04 for participants in California.
+WTCM8R05,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 05 for participants in California.
+WTCM8R06,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 06 for participants in California.
+WTCM8R07,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 07 for participants in California.
+WTCM8R08,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 08 for participants in California.
+WTCM8R09,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 09 for participants in California.
+WTCM8R10,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 10 for participants in California.
+WTCM8R11,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 11 for participants in California.
+WTCM8R12,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 12 for participants in California.
+WTCM8R13,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 13 for participants in California.
+WTCM8R14,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 14 for participants in California.
+WTCM8R15,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 15 for participants in California.
+WTCM8R16,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 16 for participants in California.
+WTCM8R17,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 17 for participants in California.
+WTCM8R18,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 18 for participants in California.
+WTCM8R19,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 19 for participants in California.
+WTCM8R20,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 20 for participants in California.
+WTCM8R21,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 21 for participants in California.
+WTCM8R22,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 22 for participants in California.
+WTCM8R23,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 23 for participants in California.
+WTCM8R24,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 24 for participants in California.
+WTCM8R25,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 25 for participants in California.
+WTCM8R26,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 26 for participants in California.
+WTCM8R27,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 27 for participants in California.
+WTCM8R28,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 28 for participants in California.
+WTCM8R29,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 29 for participants in California.
+WTCM8R30,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 30 for participants in California.
+WTCM8R31,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 31 for participants in California.
+WTCM8R32,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 32 for participants in California.
+WTCM8R33,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 33 for participants in California.
+WTCM8R34,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 34 for participants in California.
+WTCM8R35,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 35 for participants in California.
+WTCM8R36,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 36 for participants in California.
+WTCM8R37,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 37 for participants in California.
+WTCM8R38,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 38 for participants in California.
+WTCM8R39,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 39 for participants in California.
+WTCM8R40,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 40 for participants in California.
+WTCM8R41,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 41 for participants in California.
+WTCM8R42,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 42 for participants in California.
+WTCM8R43,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 43 for participants in California.
+WTCM8R44,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 44 for participants in California.
+WTCM8R45,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 45 for participants in California.
+WTCM8R46,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 46 for participants in California.
+WTCM8R47,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 47 for participants in California.
+WTCM8R48,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 48 for participants in California.
+WTCM8R49,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 49 for participants in California.
+WTCM8R50,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 50 for participants in California.
+WTCM8R51,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 51 for participants in California.
+WTCM8R52,8-year MEC exam weight: Fay's-adjusted balanced repeated replication (Fay's BRR) weight 52 for participants in California.
+BG2K,Census 2000 Block Group
+BLOCK2K,Census 2000 Block ID - first character is the Census Block Group
+CBSA,Core Based Statistical Area (CBSA) Lowest Level Code
+CNTY2K,Census 2000 FIPS County Code (3-digit numeric with leading zeros significant)
+LAT,Latitude (Decimal)
+LON,Longitude in decimal format with up to 6 decimal precision
+LVL2K,Census 2000 Geocoder LAT/LONG Geocoding Level Return Code
+RC2K,Census 2000 Geocoder General Return Code
+STATE2K,Census 2000 FIPS State Code
+STM2K,Reference Census 2000 Geocoder RCs (Return Codes) tab
+TRACT2K,Census 2000 Tract
+UR,"Urban/Rural Indicator (U = Urban, R = Rural, blank = unknown)  [TIGER/Line RcdType 'S'; UR value]"
+BG2KX,Census 2010 Block Group
+BLOCK2KX,Census 2010 Block ID - first character is the Census Block Group
+CNTY2KX,Census 2010 FIPS County Code (3-digit numeric with leading zeros significant)
+LVL2KX,Reference Census 2010 Geocoder RCs (Return Codes) tab
+RC2KX,Reference Census 2010 Geocoder RCs (Return Codes) tab
+STATE2KX,Census 2010 FIPS State Code (2-digit numeric with leading zeros significant)
+STM2KX,Census 2010 Geocoder Street Matcher Return Code
+TRACT2KX,Census 2010 Tract (contains leader zeros with the decimal point implied)
+UR2KX,"Urban/Rural Indicator (U = Urban, R = Rural, blank = unknown)  [TIGER/Line RcdType 'S'; UR value]"
+DMDHRAGZ,HH reference person's age in years
+DMDHREDZ,HH reference person's education level
+DMDHRMAZ,HH reference person's marital status
+DMDHSEDZ,HH reference person's spouse's education level
