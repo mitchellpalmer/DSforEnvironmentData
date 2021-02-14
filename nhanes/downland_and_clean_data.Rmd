@@ -1,0 +1,82 @@
+---
+title: "Generate NHANES data for use in Data Science for ES"
+author: "Mitchell Palmer"
+date: "07/02/2021"
+output: html_notebook
+---
+
+Include the needed libraries, including nhanesA, which is a convenient wrapper library for NHANES data.
+
+```{r setup}
+library(tidyverse)
+library(rvest)
+library(nhanesA)
+```
+
+## Download and merge every year, selected tables of nhanes data into one R Datafile
+
+Create a list of survey years to download. Then generate a list of alphabetic codes to go with those years, which are descending in time order.
+
+```{r}
+years <- c(
+  "1999-2000", "2001-2002", "2003-2004", "2005-2006", "2007-2008", "2009-2010", "2011-2012", "2013-2014", "2015-2016", "2017-2018"
+)
+alphabet_codes <-  c("", paste0("_", LETTERS[-1]))
+```
+
+Create a list of files to download
+
+```{r}
+file_names <- c(
+  # "DEMO", # Demographic information, including survey weighting - not included because needed to generate unique 
+  "PbCd",   # Blood test results for metals
+  "DR1TOT", # Dietary information from day before survey, including fish-consumption information
+  "L26PP"   # Pesticide residues found in urine
+)
+```
+
+Loop through survey-years, download each of the files mentioned above using nhanesA, translate the coding. merge based on their common survey respondent ID. Skip first three years because no blood test results exist for those years.
+
+```{r}
+
+every_year <- data.frame()
+
+for (y in 4:length(years)) {
+  
+  year <- years[y]
+  year_code <- alphabet_codes[y]
+  
+  demo_table <- paste0("DEMO", year_code)
+  survey <- nhanes(demo_table)
+  translated_survey <- nhanesTranslate(demo_table, names(survey), data=survey)
+
+  translated_survey$year <- year
+  
+  for (f in file_names) {    
+    try({
+      table_name <- paste0(f, year_code)
+      raw_table <- nhanes(table_name)
+      if (!is.null(raw_table)) {
+        translated_table <- nhanesTranslate(table_name, names(raw_table), data=raw_table)
+        translated_survey <- translated_survey %>% left_join(translated_table, by = "SEQN")
+      }    
+    })
+  }
+  
+  write_rds(translated_survey, paste0("data", year_code, ".rds"))
+  
+}
+```
+
+For some godforesaken reason, the CDC have not kept the same coding between survey years. Thus, have to recode on year-by-year basis. Then save this file to an RDS file which can be imported directly into R.
+
+```{r}
+
+total <- NULL
+
+for (code in 4:length(alphabet_codes)) {
+  total <- readRDS(paste0("data", year_code, ".rds")) %>%
+    bind_rows(total)
+}
+
+```

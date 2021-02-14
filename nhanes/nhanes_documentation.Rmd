@@ -1,0 +1,6 @@
+---
+title: "Guide to NHANES"
+output: html_notebook
+---
+
+NHANES -- or "National Health and Nutrition Examination Survey" -- is a United States-wide survey run by the Centres for Disease Control and Prevention. It combines both survey data and data from medical examinations. You would have used it in your QR classes. In this course, we will deal with more data and slightly more complicated measures.
