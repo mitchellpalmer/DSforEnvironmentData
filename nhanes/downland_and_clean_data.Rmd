@@ -79,4 +79,6 @@ for (code in 4:length(alphabet_codes)) {
     bind_rows(total)
 }
 
+write_rds(total, "nhanes_ALL_YEARS.rds")
+
 ```
