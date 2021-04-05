@@ -9,8 +9,8 @@ Include the needed libraries, including nhanesA, which is a convenient wrapper l
 
 ```{r setup}
 library(tidyverse)
-library(rvest)
 library(nhanesA)
+library(sjlabelled) # for dealing with labelled objects
 ```
 
 ## Download and merge every year, selected tables of nhanes data into one R Datafile
@@ -72,11 +72,12 @@ For some godforesaken reason, the CDC have not kept the same coding between surv
 
 ```{r}
 
+
 total <- NULL
 
-for (code in 4:length(alphabet_codes)) {
-  total <- readRDS(paste0("data", year_code, ".rds")) %>%
-    bind_rows(total)
+for (n in 4:10) {
+  temp <- remove_all_labels(label_to_colnames(readRDS(paste0("data", alphabet_codes[n], ".rds"))))
+  total <- add_rows(total, temp)
 }
 
 write_rds(total, "nhanes_ALL_YEARS.rds")
