@@ -11,6 +11,7 @@ Include the needed libraries, including nhanesA, which is a convenient wrapper l
 library(tidyverse)
 library(nhanesA)
 library(sjlabelled) # for dealing with labelled objects
+library(sjmisc)
 ```
 
 ## Download and merge every year, selected tables of nhanes data into one R Datafile
@@ -30,8 +31,13 @@ Create a list of files to download
 file_names <- c(
   # "DEMO", # Demographic information, including survey weighting - not included because needed to generate unique 
   "PbCd",   # Blood test results for metals
-  "DR1TOT", # Dietary information from day before survey, including fish-consumption information
-  "L26PP"   # Pesticide residues found in urine
+  "UM",     # Metal in urine
+  "EPH",    # Environmental phenols
+  "EPHPP",  # Personal Care and Consumer Product Chemicals and Metabolites
+  "PHTHTE", # Phthalates - Urine
+  "PAH",    # Polyaromatic Hydrocarbons
+  "PP",     # Pesticides - Environmental
+  "DR1TOT"  # Dietary information from day before survey, including fish-consumption information
 )
 ```
 

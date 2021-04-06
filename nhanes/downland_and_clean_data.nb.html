@@ -1809,18 +1809,6 @@ summary {
 library(nhanesA)
 library(sjlabelled) # for dealing with labelled objects</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5BdHRhY2hpbmcgcGFja2FnZTog4oCYc2psYWJlbGxlZOKAmVxuXG5UaGUgZm9sbG93aW5nIG9iamVjdCBpcyBtYXNrZWQgZnJvbSDigJhwYWNrYWdlOmZvcmNhdHPigJk6XG5cbiAgICBhc19mYWN0b3JcblxuVGhlIGZvbGxvd2luZyBvYmplY3QgaXMgbWFza2VkIGZyb20g4oCYcGFja2FnZTpkcGx5cuKAmTpcblxuICAgIGFzX2xhYmVsXG4ifQ== -->
-<pre><code>
-Attaching package: ‘sjlabelled’
-
-The following object is masked from ‘package:forcats’:
-
-    as_factor
-
-The following object is masked from ‘package:dplyr’:
-
-    as_label</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <div id="download-and-merge-every-year-selected-tables-of-nhanes-data-into-one-r-datafile" class="section level2">
@@ -1839,12 +1827,17 @@ alphabet_codes &lt;-  c(&quot;&quot;, paste0(&quot;_&quot;, LETTERS[-1]))</code>
 <p>Create a list of files to download</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZmlsZV9uYW1lcyA8LSBjKFxuICAjIFwiREVNT1wiLCAjIERlbW9ncmFwaGljIGluZm9ybWF0aW9uLCBpbmNsdWRpbmcgc3VydmV5IHdlaWdodGluZyAtIG5vdCBpbmNsdWRlZCBiZWNhdXNlIG5lZWRlZCB0byBnZW5lcmF0ZSB1bmlxdWUgXG4gIFwiUGJDZFwiLCAgICMgQmxvb2QgdGVzdCByZXN1bHRzIGZvciBtZXRhbHNcbiAgXCJEUjFUT1RcIiwgIyBEaWV0YXJ5IGluZm9ybWF0aW9uIGZyb20gZGF5IGJlZm9yZSBzdXJ2ZXksIGluY2x1ZGluZyBmaXNoLWNvbnN1bXB0aW9uIGluZm9ybWF0aW9uXG4gIFwiTDI2UFBcIiAgICMgUGVzdGljaWRlIHJlc2lkdWVzIGZvdW5kIGluIHVyaW5lXG4pXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZmlsZV9uYW1lcyA8LSBjKFxuICAjIFwiREVNT1wiLCAjIERlbW9ncmFwaGljIGluZm9ybWF0aW9uLCBpbmNsdWRpbmcgc3VydmV5IHdlaWdodGluZyAtIG5vdCBpbmNsdWRlZCBiZWNhdXNlIG5lZWRlZCB0byBnZW5lcmF0ZSB1bmlxdWUgXG4gIFwiUGJDZFwiLCAgICMgQmxvb2QgdGVzdCByZXN1bHRzIGZvciBtZXRhbHNcbiAgXCJVTVwiLCAgICAgIyBNZXRhbCBpbiB1cmluZVxuICBcIkVQSFwiLCAgICAjIEVudmlyb25tZW50YWwgcGhlbm9sc1xuICBcIkVQSFBQXCIsICAjIFBlcnNvbmFsIENhcmUgYW5kIENvbnN1bWVyIFByb2R1Y3QgQ2hlbWljYWxzIGFuZCBNZXRhYm9saXRlc1xuICBcIlBIVEhURVwiLCAjIFBodGhhbGF0ZXMgLSBVcmluZVxuICBcIlBBSFwiLCAgICAjIFBvbHlhcm9tYXRpYyBIeWRyb2NhcmJvbnNcbiAgXCJQUFwiLCAgICAgIyBQZXN0aWNpZGVzIC0gRW52aXJvbm1lbnRhbFxuICBcIkRSMVRPVFwiICAjIERpZXRhcnkgaW5mb3JtYXRpb24gZnJvbSBkYXkgYmVmb3JlIHN1cnZleSwgaW5jbHVkaW5nIGZpc2gtY29uc3VtcHRpb24gaW5mb3JtYXRpb25cbilcbmBgYCJ9 -->
 <pre class="r"><code>file_names &lt;- c(
   # &quot;DEMO&quot;, # Demographic information, including survey weighting - not included because needed to generate unique 
   &quot;PbCd&quot;,   # Blood test results for metals
-  &quot;DR1TOT&quot;, # Dietary information from day before survey, including fish-consumption information
-  &quot;L26PP&quot;   # Pesticide residues found in urine
+  &quot;UM&quot;,     # Metal in urine
+  &quot;EPH&quot;,    # Environmental phenols
+  &quot;EPHPP&quot;,  # Personal Care and Consumer Product Chemicals and Metabolites
+  &quot;PHTHTE&quot;, # Phthalates - Urine
+  &quot;PAH&quot;,    # Polyaromatic Hydrocarbons
+  &quot;PP&quot;,     # Pesticides - Environmental
+  &quot;DR1TOT&quot;  # Dietary information from day before survey, including fish-consumption information
 )</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
@@ -1891,15 +1884,40 @@ for (y in 4:length(years)) {
 <!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBQQkNEX0QgXHQgLi5cbiJ9 -->
 <pre><code>Processing SAS dataset PBCD_D    ..</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBMQkRUSEdMQ1xuIn0= -->
-<pre><code>No translation table is available for SEQNTranslated columns: LBDTHGLC</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBMQkRUSEdMQ1xuc2ltcGxlV2FybmluZyBpbiBkb3dubG9hZC5maWxlKHVybCwgdGYsIG1vZGUgPSBcIndiXCIsIHF1aWV0ID0gVFJVRSk6IGNhbm5vdCBvcGVuIFVSTCAnaHR0cHM6Ly93d3duLmNkYy5nb3YvTmNocy9OaGFuZXMvMjAwNS0yMDA2L1VNX0QuWFBUJzogSFRUUCBzdGF0dXMgd2FzICc0MDQgTm90IEZvdW5kJ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: LBDTHGLC
+simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/UM_D.XPT': HTTP status was '404 Not Found'</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBFUEhfRCBcdCAuLlxuIn0= -->
+<pre><code>Processing SAS dataset EPH_D     ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkRCUEhMQyBVUkRCUDNMQyBVUkQ0VE9MQyBVUkRUUlNMQyBVUkRCVVBMQyBVUkRFUEJMQyBVUkRNUEJMQyBVUkRQUEJMQ1xuc2ltcGxlV2FybmluZyBpbiBkb3dubG9hZC5maWxlKHVybCwgdGYsIG1vZGUgPSBcIndiXCIsIHF1aWV0ID0gVFJVRSk6IGNhbm5vdCBvcGVuIFVSTCAnaHR0cHM6Ly93d3duLmNkYy5nb3YvTmNocy9OaGFuZXMvMjAwNS0yMDA2L0VQSFBQX0QuWFBUJzogSFRUUCBzdGF0dXMgd2FzICc0MDQgTm90IEZvdW5kJ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URDBPHLC URDBP3LC URD4TOLC URDTRSLC URDBUPLC URDEPBLC URDMPBLC URDPPBLC
+simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/EPHPP_D.XPT': HTTP status was '404 Not Found'</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBQSFRIVEVfRCBcdCAuLlxuIn0= -->
+<pre><code>Processing SAS dataset PHTHTE_D      ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkRDTlBMQyBVUkRDT1BMQyBVUkRNQlBMQyBVUkRNQ1BMQyBVUkRNRVBMQyBVUkRNSFBMQyBVUkRNTlBMQyBVUkRNT1BMQyBVUkRNWlBMQyBVUkRNTk1MQyBVUkRNQzFMQyBVUkRNSEhMQyBVUkRNT0hMQyBVUkRNSUJMQyBVUkRFQ1BMQ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URDCNPLC URDCOPLC URDMBPLC URDMCPLC URDMEPLC URDMHPLC URDMNPLC URDMOPLC URDMZPLC URDMNMLC URDMC1LC URDMHHLC URDMOHLC URDMIBLC URDECPLC</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBQQUhfRCBcdCAuLlxuIn0= -->
+<pre><code>Processing SAS dataset PAH_D     ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkRQMDFMQyBVUkRQMDJMQyBVUkRQMDNMQyBVUkRQMDVMQyBVUkRQMDZMQyBVUkRQMDdMQyBVUkRQMTBMQyBVUkRQMTlMQ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URDP01LC URDP02LC URDP03LC URDP05LC URDP06LC URDP07LC URDP10LC URDP19LC</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBQUF9EIFx0IC4uXG4ifQ== -->
+<pre><code>Processing SAS dataset PP_D      ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkQxNERMQyBVUkRPUFBMQyBVUkREQ0JMQyBVUkQxVEJMQyBVUkQzVEJMQ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URD14DLC URDOPPLC URDDCBLC URD1TBLC URD3TBLC</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBEUjFUT1RfRCBcdCAuLlxuIn0= -->
 <pre><code>Processing SAS dataset DR1TOT_D      ..</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOQ29sdW1uIFwiRFIxLjMwMFwiIG5vdCBmb3VuZENvbHVtbiBcIkRSMS4zMjBaXCIgbm90IGZvdW5kQ29sdW1uIFwiRFIxLjMzMFpcIiBub3QgZm91bmRUcmFuc2xhdGVkIGNvbHVtbnM6IERSMURSU1RaIERSQUJGIERSRElOVCBEUjFEQVkgRFIxTEFORyBEUjFNTlJTUCBEUjFIRUxQRCBEQlEwOTVaIERCRDEwMCBEUlFTUFJFUCBEUlFTRElFVCBEUjFUV1MgRFJEMzQwIERSRDM1MEEgRFJEMzUwQiBEUkQzNTBDIERSRDM1MEQgRFJEMzUwRSBEUkQzNTBGIERSRDM1MEcgRFJEMzUwSCBEUkQzNTBJIERSRDM1MEogRFJEMzYwIERSRDM3MEEgRFJEMzcwQiBEUkQzNzBDIERSRDM3MEQgRFJEMzcwRSBEUkQzNzBGIERSRDM3MEcgRFJEMzcwSCBEUkQzNzBJIERSRDM3MEogRFJEMzcwSyBEUkQzNzBMIERSRDM3ME0gRFJEMzcwTiBEUkQzNzBPIERSRDM3MFAgRFJEMzcwUSBEUkQzNzBSIERSRDM3MFMgRFJEMzcwVCBEUkQzNzBVXG5zaW1wbGVXYXJuaW5nIGluIGRvd25sb2FkLmZpbGUodXJsLCB0ZiwgbW9kZSA9IFwid2JcIiwgcXVpZXQgPSBUUlVFKTogY2Fubm90IG9wZW4gVVJMICdodHRwczovL3d3d24uY2RjLmdvdi9OY2hzL05oYW5lcy8yMDA1LTIwMDYvTDI2UFBfRC5YUFQnOiBIVFRQIHN0YXR1cyB3YXMgJzQwNCBOb3QgRm91bmQnXG4ifQ== -->
-<pre><code>No translation table is available for SEQNColumn &quot;DR1.300&quot; not foundColumn &quot;DR1.320Z&quot; not foundColumn &quot;DR1.330Z&quot; not foundTranslated columns: DR1DRSTZ DRABF DRDINT DR1DAY DR1LANG DR1MNRSP DR1HELPD DBQ095Z DBD100 DRQSPREP DRQSDIET DR1TWS DRD340 DRD350A DRD350B DRD350C DRD350D DRD350E DRD350F DRD350G DRD350H DRD350I DRD350J DRD360 DRD370A DRD370B DRD370C DRD370D DRD370E DRD370F DRD370G DRD370H DRD370I DRD370J DRD370K DRD370L DRD370M DRD370N DRD370O DRD370P DRD370Q DRD370R DRD370S DRD370T DRD370U
-simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/L26PP_D.XPT': HTTP status was '404 Not Found'</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOQ29sdW1uIFwiRFIxLjMwMFwiIG5vdCBmb3VuZENvbHVtbiBcIkRSMS4zMjBaXCIgbm90IGZvdW5kQ29sdW1uIFwiRFIxLjMzMFpcIiBub3QgZm91bmRUcmFuc2xhdGVkIGNvbHVtbnM6IERSMURSU1RaIERSQUJGIERSRElOVCBEUjFEQVkgRFIxTEFORyBEUjFNTlJTUCBEUjFIRUxQRCBEQlEwOTVaIERCRDEwMCBEUlFTUFJFUCBEUlFTRElFVCBEUjFUV1MgRFJEMzQwIERSRDM1MEEgRFJEMzUwQiBEUkQzNTBDIERSRDM1MEQgRFJEMzUwRSBEUkQzNTBGIERSRDM1MEcgRFJEMzUwSCBEUkQzNTBJIERSRDM1MEogRFJEMzYwIERSRDM3MEEgRFJEMzcwQiBEUkQzNzBDIERSRDM3MEQgRFJEMzcwRSBEUkQzNzBGIERSRDM3MEcgRFJEMzcwSCBEUkQzNzBJIERSRDM3MEogRFJEMzcwSyBEUkQzNzBMIERSRDM3ME0gRFJEMzcwTiBEUkQzNzBPIERSRDM3MFAgRFJEMzcwUSBEUkQzNzBSIERSRDM3MFMgRFJEMzcwVCBEUkQzNzBVXG4ifQ== -->
+<pre><code>No translation table is available for SEQNColumn &quot;DR1.300&quot; not foundColumn &quot;DR1.320Z&quot; not foundColumn &quot;DR1.330Z&quot; not foundTranslated columns: DR1DRSTZ DRABF DRDINT DR1DAY DR1LANG DR1MNRSP DR1HELPD DBQ095Z DBD100 DRQSPREP DRQSDIET DR1TWS DRD340 DRD350A DRD350B DRD350C DRD350D DRD350E DRD350F DRD350G DRD350H DRD350I DRD350J DRD360 DRD370A DRD370B DRD370C DRD370D DRD370E DRD370F DRD370G DRD370H DRD370I DRD370J DRD370K DRD370L DRD370M DRD370N DRD370O DRD370P DRD370Q DRD370R DRD370S DRD370T DRD370U</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBERU1PX0UgXHQgLi5cbiJ9 -->
 <pre><code>Processing SAS dataset DEMO_E    ..</code></pre>
@@ -1910,15 +1928,40 @@ simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): ca
 <!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBQQkNEX0UgXHQgLi5cbiJ9 -->
 <pre><code>Processing SAS dataset PBCD_E    ..</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBMQkRUSEdMQ1xuIn0= -->
-<pre><code>No translation table is available for SEQNTranslated columns: LBDTHGLC</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBMQkRUSEdMQ1xuc2ltcGxlV2FybmluZyBpbiBkb3dubG9hZC5maWxlKHVybCwgdGYsIG1vZGUgPSBcIndiXCIsIHF1aWV0ID0gVFJVRSk6IGNhbm5vdCBvcGVuIFVSTCAnaHR0cHM6Ly93d3duLmNkYy5nb3YvTmNocy9OaGFuZXMvMjAwNy0yMDA4L1VNX0UuWFBUJzogSFRUUCBzdGF0dXMgd2FzICc0MDQgTm90IEZvdW5kJ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: LBDTHGLC
+simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/UM_E.XPT': HTTP status was '404 Not Found'</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBFUEhfRSBcdCAuLlxuIn0= -->
+<pre><code>Processing SAS dataset EPH_E     ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkQ0VE9MQyBVUkRCUDNMQyBVUkRCUEhMQyBVUkRUUlNMQyBVUkRCVVBMQyBVUkRFUEJMQyBVUkRNUEJMQyBVUkRQUEJMQ1xuc2ltcGxlV2FybmluZyBpbiBkb3dubG9hZC5maWxlKHVybCwgdGYsIG1vZGUgPSBcIndiXCIsIHF1aWV0ID0gVFJVRSk6IGNhbm5vdCBvcGVuIFVSTCAnaHR0cHM6Ly93d3duLmNkYy5nb3YvTmNocy9OaGFuZXMvMjAwNy0yMDA4L0VQSFBQX0UuWFBUJzogSFRUUCBzdGF0dXMgd2FzICc0MDQgTm90IEZvdW5kJ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URD4TOLC URDBP3LC URDBPHLC URDTRSLC URDBUPLC URDEPBLC URDMPBLC URDPPBLC
+simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/EPHPP_E.XPT': HTTP status was '404 Not Found'</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBQSFRIVEVfRSBcdCAuLlxuIn0= -->
+<pre><code>Processing SAS dataset PHTHTE_E      ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkRDTlBMQyBVUkRDT1BMQyBVUkRFQ1BMQyBVUkRNQlBMQyBVUkRNQzFMQyBVUkRNQ1BMQyBVUkRNSEhMQyBVUkRNSFBMQyBVUkRNTk1MQyBVUkRNTlBMQyBVUkRNT0hMQyBVUkRNT1BMQyBVUkRNWlBMQyBVUkRNSUJMQ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URDCNPLC URDCOPLC URDECPLC URDMBPLC URDMC1LC URDMCPLC URDMHHLC URDMHPLC URDMNMLC URDMNPLC URDMOHLC URDMOPLC URDMZPLC URDMIBLC</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBQQUhfRSBcdCAuLlxuIn0= -->
+<pre><code>Processing SAS dataset PAH_E     ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkRQMDFMQyBVUkRQMDJMQyBVUkRQMDNMQyBVUkRQMDRMQyBVUkRQMDVMQyBVUkRQMDdMQyBVUkRQMTBMQ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URDP01LC URDP02LC URDP03LC URDP04LC URDP05LC URDP07LC URDP10LC</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBQUF9FIFx0IC4uXG4ifQ== -->
+<pre><code>Processing SAS dataset PP_E      ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkQxNERMQyBVUkRPUFBMQyBVUkREQ0JMQyBVUkQxVEJMQyBVUkQzVEJMQ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URD14DLC URDOPPLC URDDCBLC URD1TBLC URD3TBLC</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBEUjFUT1RfRSBcdCAuLlxuIn0= -->
 <pre><code>Processing SAS dataset DR1TOT_E      ..</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOQ29sdW1uIFwiRFIxLjMwMFwiIG5vdCBmb3VuZENvbHVtbiBcIkRSMS4zMjBaXCIgbm90IGZvdW5kQ29sdW1uIFwiRFIxLjMzMFpcIiBub3QgZm91bmRUcmFuc2xhdGVkIGNvbHVtbnM6IERSMURSU1RaIERSQUJGIERSRElOVCBEUjFEQVkgRFIxTEFORyBEUjFNTlJTUCBEUjFIRUxQRCBEQlEwOTVaIERCRDEwMCBEUlFTUFJFUCBEUlFTRElFVCBEUjFUV1MgRFJEMzQwIERSRDM1MEEgRFJEMzUwQiBEUkQzNTBDIERSRDM1MEQgRFJEMzUwRSBEUkQzNTBGIERSRDM1MEcgRFJEMzUwSCBEUkQzNTBJIERSRDM1MEogRFJEMzYwIERSRDM3MEEgRFJEMzcwQiBEUkQzNzBDIERSRDM3MEQgRFJEMzcwRSBEUkQzNzBGIERSRDM3MEcgRFJEMzcwSCBEUkQzNzBJIERSRDM3MEogRFJEMzcwSyBEUkQzNzBMIERSRDM3ME0gRFJEMzcwTiBEUkQzNzBPIERSRDM3MFAgRFJEMzcwUSBEUkQzNzBSIERSRDM3MFMgRFJEMzcwVCBEUkQzNzBVXG5zaW1wbGVXYXJuaW5nIGluIGRvd25sb2FkLmZpbGUodXJsLCB0ZiwgbW9kZSA9IFwid2JcIiwgcXVpZXQgPSBUUlVFKTogY2Fubm90IG9wZW4gVVJMICdodHRwczovL3d3d24uY2RjLmdvdi9OY2hzL05oYW5lcy8yMDA3LTIwMDgvTDI2UFBfRS5YUFQnOiBIVFRQIHN0YXR1cyB3YXMgJzQwNCBOb3QgRm91bmQnXG4ifQ== -->
-<pre><code>No translation table is available for SEQNColumn &quot;DR1.300&quot; not foundColumn &quot;DR1.320Z&quot; not foundColumn &quot;DR1.330Z&quot; not foundTranslated columns: DR1DRSTZ DRABF DRDINT DR1DAY DR1LANG DR1MNRSP DR1HELPD DBQ095Z DBD100 DRQSPREP DRQSDIET DR1TWS DRD340 DRD350A DRD350B DRD350C DRD350D DRD350E DRD350F DRD350G DRD350H DRD350I DRD350J DRD360 DRD370A DRD370B DRD370C DRD370D DRD370E DRD370F DRD370G DRD370H DRD370I DRD370J DRD370K DRD370L DRD370M DRD370N DRD370O DRD370P DRD370Q DRD370R DRD370S DRD370T DRD370U
-simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/L26PP_E.XPT': HTTP status was '404 Not Found'</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOQ29sdW1uIFwiRFIxLjMwMFwiIG5vdCBmb3VuZENvbHVtbiBcIkRSMS4zMjBaXCIgbm90IGZvdW5kQ29sdW1uIFwiRFIxLjMzMFpcIiBub3QgZm91bmRUcmFuc2xhdGVkIGNvbHVtbnM6IERSMURSU1RaIERSQUJGIERSRElOVCBEUjFEQVkgRFIxTEFORyBEUjFNTlJTUCBEUjFIRUxQRCBEQlEwOTVaIERCRDEwMCBEUlFTUFJFUCBEUlFTRElFVCBEUjFUV1MgRFJEMzQwIERSRDM1MEEgRFJEMzUwQiBEUkQzNTBDIERSRDM1MEQgRFJEMzUwRSBEUkQzNTBGIERSRDM1MEcgRFJEMzUwSCBEUkQzNTBJIERSRDM1MEogRFJEMzYwIERSRDM3MEEgRFJEMzcwQiBEUkQzNzBDIERSRDM3MEQgRFJEMzcwRSBEUkQzNzBGIERSRDM3MEcgRFJEMzcwSCBEUkQzNzBJIERSRDM3MEogRFJEMzcwSyBEUkQzNzBMIERSRDM3ME0gRFJEMzcwTiBEUkQzNzBPIERSRDM3MFAgRFJEMzcwUSBEUkQzNzBSIERSRDM3MFMgRFJEMzcwVCBEUkQzNzBVXG4ifQ== -->
+<pre><code>No translation table is available for SEQNColumn &quot;DR1.300&quot; not foundColumn &quot;DR1.320Z&quot; not foundColumn &quot;DR1.330Z&quot; not foundTranslated columns: DR1DRSTZ DRABF DRDINT DR1DAY DR1LANG DR1MNRSP DR1HELPD DBQ095Z DBD100 DRQSPREP DRQSDIET DR1TWS DRD340 DRD350A DRD350B DRD350C DRD350D DRD350E DRD350F DRD350G DRD350H DRD350I DRD350J DRD360 DRD370A DRD370B DRD370C DRD370D DRD370E DRD370F DRD370G DRD370H DRD370I DRD370J DRD370K DRD370L DRD370M DRD370N DRD370O DRD370P DRD370Q DRD370R DRD370S DRD370T DRD370U</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBERU1PX0YgXHQgLi5cbiJ9 -->
 <pre><code>Processing SAS dataset DEMO_F    ..</code></pre>
@@ -1929,15 +1972,40 @@ simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): ca
 <!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBQQkNEX0YgXHQgLi5cbiJ9 -->
 <pre><code>Processing SAS dataset PBCD_F    ..</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBMQkRCQ0RMQyBMQkRCUEJMQyBMQkRUSEdMQ1xuIn0= -->
-<pre><code>No translation table is available for SEQNTranslated columns: LBDBCDLC LBDBPBLC LBDTHGLC</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBMQkRCQ0RMQyBMQkRCUEJMQyBMQkRUSEdMQ1xuc2ltcGxlV2FybmluZyBpbiBkb3dubG9hZC5maWxlKHVybCwgdGYsIG1vZGUgPSBcIndiXCIsIHF1aWV0ID0gVFJVRSk6IGNhbm5vdCBvcGVuIFVSTCAnaHR0cHM6Ly93d3duLmNkYy5nb3YvTmNocy9OaGFuZXMvMjAwOS0yMDEwL1VNX0YuWFBUJzogSFRUUCBzdGF0dXMgd2FzICc0MDQgTm90IEZvdW5kJ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: LBDBCDLC LBDBPBLC LBDTHGLC
+simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/UM_F.XPT': HTTP status was '404 Not Found'</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBFUEhfRiBcdCAuLlxuIn0= -->
+<pre><code>Processing SAS dataset EPH_F     ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkQ0VE9MQyBVUkRCUDNMQyBVUkRCUEhMQyBVUkRUUlNMQyBVUkRCVVBMQyBVUkRFUEJMQyBVUkRNUEJMQyBVUkRQUEJMQ1xuc2ltcGxlV2FybmluZyBpbiBkb3dubG9hZC5maWxlKHVybCwgdGYsIG1vZGUgPSBcIndiXCIsIHF1aWV0ID0gVFJVRSk6IGNhbm5vdCBvcGVuIFVSTCAnaHR0cHM6Ly93d3duLmNkYy5nb3YvTmNocy9OaGFuZXMvMjAwOS0yMDEwL0VQSFBQX0YuWFBUJzogSFRUUCBzdGF0dXMgd2FzICc0MDQgTm90IEZvdW5kJ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URD4TOLC URDBP3LC URDBPHLC URDTRSLC URDBUPLC URDEPBLC URDMPBLC URDPPBLC
+simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/EPHPP_F.XPT': HTTP status was '404 Not Found'</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBQSFRIVEVfRiBcdCAuLlxuIn0= -->
+<pre><code>Processing SAS dataset PHTHTE_F      ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkRDTlBMQyBVUkRDT1BMQyBVUkRFQ1BMQyBVUkRNQlBMQyBVUkRNQzFMQyBVUkRNQ1BMQyBVUkRNSEhMQyBVUkRNSFBMQyBVUkRNTk1MQyBVUkRNTlBMQyBVUkRNT0hMQyBVUkRNT1BMQyBVUkRNWlBMQyBVUkRNSUJMQ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URDCNPLC URDCOPLC URDECPLC URDMBPLC URDMC1LC URDMCPLC URDMHHLC URDMHPLC URDMNMLC URDMNPLC URDMOHLC URDMOPLC URDMZPLC URDMIBLC</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBQQUhfRiBcdCAuLlxuIn0= -->
+<pre><code>Processing SAS dataset PAH_F     ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkRQMDNMQyBVUkRQMDVMQyBVUkRQMDZMQyBVUkRQMDdMQyBVUkRQMTBMQyBVUkRQMTdMQ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URDP03LC URDP05LC URDP06LC URDP07LC URDP10LC URDP17LC</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBQUF9GIFx0IC4uXG4ifQ== -->
+<pre><code>Processing SAS dataset PP_F      ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkQxNERMQyBVUkRPUFBMQyBVUkREQ0JMQyBVUkQxVEJMQyBVUkQzVEJMQ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URD14DLC URDOPPLC URDDCBLC URD1TBLC URD3TBLC</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBEUjFUT1RfRiBcdCAuLlxuIn0= -->
 <pre><code>Processing SAS dataset DR1TOT_F      ..</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOQ29sdW1uIFwiRFIxLjMwMFwiIG5vdCBmb3VuZENvbHVtbiBcIkRSMS4zMjBaXCIgbm90IGZvdW5kQ29sdW1uIFwiRFIxLjMzMFpcIiBub3QgZm91bmRUcmFuc2xhdGVkIGNvbHVtbnM6IERSMURSU1RaIERSQUJGIERSRElOVCBEUjFEQVkgRFIxTEFORyBEUjFNTlJTUCBEUjFIRUxQRCBEQlEwOTVaIERCRDEwMCBEUlFTUFJFUCBEUlFTRElFVCBEUjFUV1MgRFJEMzQwIERSRDM1MEEgRFJEMzUwQiBEUkQzNTBDIERSRDM1MEQgRFJEMzUwRSBEUkQzNTBGIERSRDM1MEcgRFJEMzUwSCBEUkQzNTBJIERSRDM1MEogRFJEMzYwIERSRDM3MEEgRFJEMzcwQiBEUkQzNzBDIERSRDM3MEQgRFJEMzcwRSBEUkQzNzBGIERSRDM3MEcgRFJEMzcwSCBEUkQzNzBJIERSRDM3MEogRFJEMzcwSyBEUkQzNzBMIERSRDM3ME0gRFJEMzcwTiBEUkQzNzBPIERSRDM3MFAgRFJEMzcwUSBEUkQzNzBSIERSRDM3MFMgRFJEMzcwVCBEUkQzNzBVXG5zaW1wbGVXYXJuaW5nIGluIGRvd25sb2FkLmZpbGUodXJsLCB0ZiwgbW9kZSA9IFwid2JcIiwgcXVpZXQgPSBUUlVFKTogY2Fubm90IG9wZW4gVVJMICdodHRwczovL3d3d24uY2RjLmdvdi9OY2hzL05oYW5lcy8yMDA5LTIwMTAvTDI2UFBfRi5YUFQnOiBIVFRQIHN0YXR1cyB3YXMgJzQwNCBOb3QgRm91bmQnXG4ifQ== -->
-<pre><code>No translation table is available for SEQNColumn &quot;DR1.300&quot; not foundColumn &quot;DR1.320Z&quot; not foundColumn &quot;DR1.330Z&quot; not foundTranslated columns: DR1DRSTZ DRABF DRDINT DR1DAY DR1LANG DR1MNRSP DR1HELPD DBQ095Z DBD100 DRQSPREP DRQSDIET DR1TWS DRD340 DRD350A DRD350B DRD350C DRD350D DRD350E DRD350F DRD350G DRD350H DRD350I DRD350J DRD360 DRD370A DRD370B DRD370C DRD370D DRD370E DRD370F DRD370G DRD370H DRD370I DRD370J DRD370K DRD370L DRD370M DRD370N DRD370O DRD370P DRD370Q DRD370R DRD370S DRD370T DRD370U
-simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/L26PP_F.XPT': HTTP status was '404 Not Found'</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOQ29sdW1uIFwiRFIxLjMwMFwiIG5vdCBmb3VuZENvbHVtbiBcIkRSMS4zMjBaXCIgbm90IGZvdW5kQ29sdW1uIFwiRFIxLjMzMFpcIiBub3QgZm91bmRUcmFuc2xhdGVkIGNvbHVtbnM6IERSMURSU1RaIERSQUJGIERSRElOVCBEUjFEQVkgRFIxTEFORyBEUjFNTlJTUCBEUjFIRUxQRCBEQlEwOTVaIERCRDEwMCBEUlFTUFJFUCBEUlFTRElFVCBEUjFUV1MgRFJEMzQwIERSRDM1MEEgRFJEMzUwQiBEUkQzNTBDIERSRDM1MEQgRFJEMzUwRSBEUkQzNTBGIERSRDM1MEcgRFJEMzUwSCBEUkQzNTBJIERSRDM1MEogRFJEMzYwIERSRDM3MEEgRFJEMzcwQiBEUkQzNzBDIERSRDM3MEQgRFJEMzcwRSBEUkQzNzBGIERSRDM3MEcgRFJEMzcwSCBEUkQzNzBJIERSRDM3MEogRFJEMzcwSyBEUkQzNzBMIERSRDM3ME0gRFJEMzcwTiBEUkQzNzBPIERSRDM3MFAgRFJEMzcwUSBEUkQzNzBSIERSRDM3MFMgRFJEMzcwVCBEUkQzNzBVXG4ifQ== -->
+<pre><code>No translation table is available for SEQNColumn &quot;DR1.300&quot; not foundColumn &quot;DR1.320Z&quot; not foundColumn &quot;DR1.330Z&quot; not foundTranslated columns: DR1DRSTZ DRABF DRDINT DR1DAY DR1LANG DR1MNRSP DR1HELPD DBQ095Z DBD100 DRQSPREP DRQSDIET DR1TWS DRD340 DRD350A DRD350B DRD350C DRD350D DRD350E DRD350F DRD350G DRD350H DRD350I DRD350J DRD360 DRD370A DRD370B DRD370C DRD370D DRD370E DRD370F DRD370G DRD370H DRD370I DRD370J DRD370K DRD370L DRD370M DRD370N DRD370O DRD370P DRD370Q DRD370R DRD370S DRD370T DRD370U</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBERU1PX0cgXHQgLi5cbiJ9 -->
 <pre><code>Processing SAS dataset DEMO_G    ..</code></pre>
@@ -1948,15 +2016,40 @@ simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): ca
 <!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBQQkNEX0cgXHQgLi5cbiJ9 -->
 <pre><code>Processing SAS dataset PBCD_G    ..</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBMQkRCUEJMQyBMQkRCQ0RMQyBMQkRUSEdMQ1xuIn0= -->
-<pre><code>No translation table is available for SEQNTranslated columns: LBDBPBLC LBDBCDLC LBDTHGLC</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBMQkRCUEJMQyBMQkRCQ0RMQyBMQkRUSEdMQ1xuc2ltcGxlV2FybmluZyBpbiBkb3dubG9hZC5maWxlKHVybCwgdGYsIG1vZGUgPSBcIndiXCIsIHF1aWV0ID0gVFJVRSk6IGNhbm5vdCBvcGVuIFVSTCAnaHR0cHM6Ly93d3duLmNkYy5nb3YvTmNocy9OaGFuZXMvMjAxMS0yMDEyL1VNX0cuWFBUJzogSFRUUCBzdGF0dXMgd2FzICc0MDQgTm90IEZvdW5kJ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: LBDBPBLC LBDBCDLC LBDTHGLC
+simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/UM_G.XPT': HTTP status was '404 Not Found'</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBFUEhfRyBcdCAuLlxuIn0= -->
+<pre><code>Processing SAS dataset EPH_G     ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkRCUDNMQyBVUkRCUEhMQyBVUkRUUlNMQyBVUkRCVVBMQyBVUkRFUEJMQyBVUkRNUEJMQyBVUkRQUEJMQ1xuc2ltcGxlV2FybmluZyBpbiBkb3dubG9hZC5maWxlKHVybCwgdGYsIG1vZGUgPSBcIndiXCIsIHF1aWV0ID0gVFJVRSk6IGNhbm5vdCBvcGVuIFVSTCAnaHR0cHM6Ly93d3duLmNkYy5nb3YvTmNocy9OaGFuZXMvMjAxMS0yMDEyL0VQSFBQX0cuWFBUJzogSFRUUCBzdGF0dXMgd2FzICc0MDQgTm90IEZvdW5kJ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URDBP3LC URDBPHLC URDTRSLC URDBUPLC URDEPBLC URDMPBLC URDPPBLC
+simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/EPHPP_G.XPT': HTTP status was '404 Not Found'</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBQSFRIVEVfRyBcdCAuLlxuIn0= -->
+<pre><code>Processing SAS dataset PHTHTE_G      ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkRDTlBMQyBVUkRFQ1BMQyBVUkRNQlBMQyBVUkRNQzFMQyBVUkRNRVBMQyBVUkRNSEhMQyBVUkRNSFBMQyBVUkRNTk1MQyBVUkRNTlBMQyBVUkRNT0hMQyBVUkRNWlBMQyBVUkRNSUJMQyBVUkRNQ0hMQ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URDCNPLC URDECPLC URDMBPLC URDMC1LC URDMEPLC URDMHHLC URDMHPLC URDMNMLC URDMNPLC URDMOHLC URDMZPLC URDMIBLC URDMCHLC</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBQQUhfRyBcdCAuLlxuIn0= -->
+<pre><code>Processing SAS dataset PAH_G     ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkRQMDFMQyBVUkRQMDNMQyBVUkRQMDVMQyBVUkRQMDZMQyBVUkRQMDdMQyBVUkRQMTBMQyBVUkRQMTdMQyBVUkRQMTlMQ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URDP01LC URDP03LC URDP05LC URDP06LC URDP07LC URDP10LC URDP17LC URDP19LC</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBQUF9HIFx0IC4uXG4ifQ== -->
+<pre><code>Processing SAS dataset PP_G      ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkQxNERMQyBVUkREQ0JMQ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URD14DLC URDDCBLC</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBEUjFUT1RfRyBcdCAuLlxuIn0= -->
 <pre><code>Processing SAS dataset DR1TOT_G      ..</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOQ29sdW1uIFwiRFIxLjMwMFwiIG5vdCBmb3VuZENvbHVtbiBcIkRSMS4zMjBaXCIgbm90IGZvdW5kQ29sdW1uIFwiRFIxLjMzMFpcIiBub3QgZm91bmRUcmFuc2xhdGVkIGNvbHVtbnM6IERSMURSU1RaIERSQUJGIERSRElOVCBEUjFEQVkgRFIxTEFORyBEUjFNTlJTUCBEUjFIRUxQRCBEQlEwOTVaIERCRDEwMCBEUlFTUFJFUCBEUlFTRElFVCBEUjFUV1MgRFJEMzQwIERSRDM1MEEgRFJEMzUwQiBEUkQzNTBDIERSRDM1MEQgRFJEMzUwRSBEUkQzNTBGIERSRDM1MEcgRFJEMzUwSCBEUkQzNTBJIERSRDM1MEogRFJEMzUwSyBEUkQzNjAgRFJEMzcwQSBEUkQzNzBCIERSRDM3MEMgRFJEMzcwRCBEUkQzNzBFIERSRDM3MEYgRFJEMzcwRyBEUkQzNzBIIERSRDM3MEkgRFJEMzcwSiBEUkQzNzBLIERSRDM3MEwgRFJEMzcwTSBEUkQzNzBOIERSRDM3ME8gRFJEMzcwUCBEUkQzNzBRIERSRDM3MFIgRFJEMzcwUyBEUkQzNzBUIERSRDM3MFUgRFJEMzcwVlxuc2ltcGxlV2FybmluZyBpbiBkb3dubG9hZC5maWxlKHVybCwgdGYsIG1vZGUgPSBcIndiXCIsIHF1aWV0ID0gVFJVRSk6IGNhbm5vdCBvcGVuIFVSTCAnaHR0cHM6Ly93d3duLmNkYy5nb3YvTmNocy9OaGFuZXMvMjAxMS0yMDEyL0wyNlBQX0cuWFBUJzogSFRUUCBzdGF0dXMgd2FzICc0MDQgTm90IEZvdW5kJ1xuIn0= -->
-<pre><code>No translation table is available for SEQNColumn &quot;DR1.300&quot; not foundColumn &quot;DR1.320Z&quot; not foundColumn &quot;DR1.330Z&quot; not foundTranslated columns: DR1DRSTZ DRABF DRDINT DR1DAY DR1LANG DR1MNRSP DR1HELPD DBQ095Z DBD100 DRQSPREP DRQSDIET DR1TWS DRD340 DRD350A DRD350B DRD350C DRD350D DRD350E DRD350F DRD350G DRD350H DRD350I DRD350J DRD350K DRD360 DRD370A DRD370B DRD370C DRD370D DRD370E DRD370F DRD370G DRD370H DRD370I DRD370J DRD370K DRD370L DRD370M DRD370N DRD370O DRD370P DRD370Q DRD370R DRD370S DRD370T DRD370U DRD370V
-simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/L26PP_G.XPT': HTTP status was '404 Not Found'</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOQ29sdW1uIFwiRFIxLjMwMFwiIG5vdCBmb3VuZENvbHVtbiBcIkRSMS4zMjBaXCIgbm90IGZvdW5kQ29sdW1uIFwiRFIxLjMzMFpcIiBub3QgZm91bmRUcmFuc2xhdGVkIGNvbHVtbnM6IERSMURSU1RaIERSQUJGIERSRElOVCBEUjFEQVkgRFIxTEFORyBEUjFNTlJTUCBEUjFIRUxQRCBEQlEwOTVaIERCRDEwMCBEUlFTUFJFUCBEUlFTRElFVCBEUjFUV1MgRFJEMzQwIERSRDM1MEEgRFJEMzUwQiBEUkQzNTBDIERSRDM1MEQgRFJEMzUwRSBEUkQzNTBGIERSRDM1MEcgRFJEMzUwSCBEUkQzNTBJIERSRDM1MEogRFJEMzUwSyBEUkQzNjAgRFJEMzcwQSBEUkQzNzBCIERSRDM3MEMgRFJEMzcwRCBEUkQzNzBFIERSRDM3MEYgRFJEMzcwRyBEUkQzNzBIIERSRDM3MEkgRFJEMzcwSiBEUkQzNzBLIERSRDM3MEwgRFJEMzcwTSBEUkQzNzBOIERSRDM3ME8gRFJEMzcwUCBEUkQzNzBRIERSRDM3MFIgRFJEMzcwUyBEUkQzNzBUIERSRDM3MFUgRFJEMzcwVlxuIn0= -->
+<pre><code>No translation table is available for SEQNColumn &quot;DR1.300&quot; not foundColumn &quot;DR1.320Z&quot; not foundColumn &quot;DR1.330Z&quot; not foundTranslated columns: DR1DRSTZ DRABF DRDINT DR1DAY DR1LANG DR1MNRSP DR1HELPD DBQ095Z DBD100 DRQSPREP DRQSDIET DR1TWS DRD340 DRD350A DRD350B DRD350C DRD350D DRD350E DRD350F DRD350G DRD350H DRD350I DRD350J DRD350K DRD360 DRD370A DRD370B DRD370C DRD370D DRD370E DRD370F DRD370G DRD370H DRD370I DRD370J DRD370K DRD370L DRD370M DRD370N DRD370O DRD370P DRD370Q DRD370R DRD370S DRD370T DRD370U DRD370V</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBERU1PX0ggXHQgLi5cbiJ9 -->
 <pre><code>Processing SAS dataset DEMO_H    ..</code></pre>
@@ -1970,12 +2063,37 @@ simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): ca
 <!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBMQkRCQ0RMQyBMQkRUSEdMQ1xuIn0= -->
 <pre><code>No translation table is available for SEQNTranslated columns: LBDBCDLC LBDTHGLC</code></pre>
 <!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBVTV9IIFx0IC4uXG4ifQ== -->
+<pre><code>Processing SAS dataset UM_H      ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkRVQkFMQyBVUkRVQ0RMQyBVUkRVQ09MQyBVUkRVTU5MQyBVUkRVUEJMQyBVUkRVU0JMQyBVUkRVU05MQyBVUkRVU1JMQyBVUkRVVExMQyBVUkRVVFVMQyBVUkRVVVJMQ1xuc2ltcGxlV2FybmluZyBpbiBkb3dubG9hZC5maWxlKHVybCwgdGYsIG1vZGUgPSBcIndiXCIsIHF1aWV0ID0gVFJVRSk6IGNhbm5vdCBvcGVuIFVSTCAnaHR0cHM6Ly93d3duLmNkYy5nb3YvTmNocy9OaGFuZXMvMjAxMy0yMDE0L0VQSF9ILlhQVCc6IEhUVFAgc3RhdHVzIHdhcyAnNDA0IE5vdCBGb3VuZCdcbiJ9 -->
+<pre><code>No translation table is available for SEQNTranslated columns: URDUBALC URDUCDLC URDUCOLC URDUMNLC URDUPBLC URDUSBLC URDUSNLC URDUSRLC URDUTLLC URDUTULC URDUURLC
+simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/EPH_H.XPT': HTTP status was '404 Not Found'</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBFUEhQUF9IIFx0IC4uXG4ifQ== -->
+<pre><code>Processing SAS dataset EPHPP_H   ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkRCUDNMQyBVUkRCUEhMQyBVUkRCUEZMQyBVUkRCUFNMQyBVUkRUTENMQyBVUkRUUlNMQyBVUkRCVVBMQyBVUkRFUEJMQyBVUkRNUEJMQyBVUkRQUEJMQyBVUkQxNERMQyBVUkREQ0JMQ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URDBP3LC URDBPHLC URDBPFLC URDBPSLC URDTLCLC URDTRSLC URDBUPLC URDEPBLC URDMPBLC URDPPBLC URD14DLC URDDCBLC</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBQSFRIVEVfSCBcdCAuLlxuIn0= -->
+<pre><code>Processing SAS dataset PHTHTE_H      ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkRDTlBMQyBVUkRDT1BMQyBVUkRFQ1BMQyBVUkRNQlBMQyBVUkRNQzFMQyBVUkRNRVBMQyBVUkRNSEhMQyBVUkRNQ0hMQyBVUkRNSFBMQyBVUkRNSUJMQyBVUkRNTlBMQyBVUkRNT0hMQyBVUkRNWlBMQ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URDCNPLC URDCOPLC URDECPLC URDMBPLC URDMC1LC URDMEPLC URDMHHLC URDMCHLC URDMHPLC URDMIBLC URDMNPLC URDMOHLC URDMZPLC</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBQQUhfSCBcdCAuLlxuIn0= -->
+<pre><code>Processing SAS dataset PAH_H     ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkRQMDFMQyBVUkRQMDNMQyBVUkRQMDRMQyBVUkRQMDZMQyBVUkRQMTBMQyBVUkRQMjVMQ1xuc2ltcGxlV2FybmluZyBpbiBkb3dubG9hZC5maWxlKHVybCwgdGYsIG1vZGUgPSBcIndiXCIsIHF1aWV0ID0gVFJVRSk6IGNhbm5vdCBvcGVuIFVSTCAnaHR0cHM6Ly93d3duLmNkYy5nb3YvTmNocy9OaGFuZXMvMjAxMy0yMDE0L1BQX0guWFBUJzogSFRUUCBzdGF0dXMgd2FzICc0MDQgTm90IEZvdW5kJ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URDP01LC URDP03LC URDP04LC URDP06LC URDP10LC URDP25LC
+simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/PP_H.XPT': HTTP status was '404 Not Found'</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBEUjFUT1RfSCBcdCAuLlxuIn0= -->
 <pre><code>Processing SAS dataset DR1TOT_H      ..</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOQ29sdW1uIFwiRFIxLjMwMFwiIG5vdCBmb3VuZENvbHVtbiBcIkRSMS4zMjBaXCIgbm90IGZvdW5kQ29sdW1uIFwiRFIxLjMzMFpcIiBub3QgZm91bmRUcmFuc2xhdGVkIGNvbHVtbnM6IERSMURSU1RaIERSQUJGIERSRElOVCBEUjFEQVkgRFIxTEFORyBEUjFNTlJTUCBEUjFIRUxQRCBEQlEwOTVaIERCRDEwMCBEUlFTUFJFUCBEUjFTVFkgRFIxU0tZIERSUVNESUVUIERSMVRXUyBEUkQzNDAgRFJEMzUwQSBEUkQzNTBCIERSRDM1MEMgRFJEMzUwRCBEUkQzNTBFIERSRDM1MEYgRFJEMzUwRyBEUkQzNTBIIERSRDM1MEkgRFJEMzUwSiBEUkQzNjAgRFJEMzcwQSBEUkQzNzBCIERSRDM3MEMgRFJEMzcwRCBEUkQzNzBFIERSRDM3MEYgRFJEMzcwRyBEUkQzNzBIIERSRDM3MEkgRFJEMzcwSiBEUkQzNzBLIERSRDM3MEwgRFJEMzcwTSBEUkQzNzBOIERSRDM3ME8gRFJEMzcwUCBEUkQzNzBRIERSRDM3MFIgRFJEMzcwUyBEUkQzNzBUIERSRDM3MFVcbnNpbXBsZVdhcm5pbmcgaW4gZG93bmxvYWQuZmlsZSh1cmwsIHRmLCBtb2RlID0gXCJ3YlwiLCBxdWlldCA9IFRSVUUpOiBjYW5ub3Qgb3BlbiBVUkwgJ2h0dHBzOi8vd3d3bi5jZGMuZ292L05jaHMvTmhhbmVzLzIwMTMtMjAxNC9MMjZQUF9ILlhQVCc6IEhUVFAgc3RhdHVzIHdhcyAnNDA0IE5vdCBGb3VuZCdcbiJ9 -->
-<pre><code>No translation table is available for SEQNColumn &quot;DR1.300&quot; not foundColumn &quot;DR1.320Z&quot; not foundColumn &quot;DR1.330Z&quot; not foundTranslated columns: DR1DRSTZ DRABF DRDINT DR1DAY DR1LANG DR1MNRSP DR1HELPD DBQ095Z DBD100 DRQSPREP DR1STY DR1SKY DRQSDIET DR1TWS DRD340 DRD350A DRD350B DRD350C DRD350D DRD350E DRD350F DRD350G DRD350H DRD350I DRD350J DRD360 DRD370A DRD370B DRD370C DRD370D DRD370E DRD370F DRD370G DRD370H DRD370I DRD370J DRD370K DRD370L DRD370M DRD370N DRD370O DRD370P DRD370Q DRD370R DRD370S DRD370T DRD370U
-simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/L26PP_H.XPT': HTTP status was '404 Not Found'</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOQ29sdW1uIFwiRFIxLjMwMFwiIG5vdCBmb3VuZENvbHVtbiBcIkRSMS4zMjBaXCIgbm90IGZvdW5kQ29sdW1uIFwiRFIxLjMzMFpcIiBub3QgZm91bmRUcmFuc2xhdGVkIGNvbHVtbnM6IERSMURSU1RaIERSQUJGIERSRElOVCBEUjFEQVkgRFIxTEFORyBEUjFNTlJTUCBEUjFIRUxQRCBEQlEwOTVaIERCRDEwMCBEUlFTUFJFUCBEUjFTVFkgRFIxU0tZIERSUVNESUVUIERSMVRXUyBEUkQzNDAgRFJEMzUwQSBEUkQzNTBCIERSRDM1MEMgRFJEMzUwRCBEUkQzNTBFIERSRDM1MEYgRFJEMzUwRyBEUkQzNTBIIERSRDM1MEkgRFJEMzUwSiBEUkQzNjAgRFJEMzcwQSBEUkQzNzBCIERSRDM3MEMgRFJEMzcwRCBEUkQzNzBFIERSRDM3MEYgRFJEMzcwRyBEUkQzNzBIIERSRDM3MEkgRFJEMzcwSiBEUkQzNzBLIERSRDM3MEwgRFJEMzcwTSBEUkQzNzBOIERSRDM3ME8gRFJEMzcwUCBEUkQzNzBRIERSRDM3MFIgRFJEMzcwUyBEUkQzNzBUIERSRDM3MFVcbiJ9 -->
+<pre><code>No translation table is available for SEQNColumn &quot;DR1.300&quot; not foundColumn &quot;DR1.320Z&quot; not foundColumn &quot;DR1.330Z&quot; not foundTranslated columns: DR1DRSTZ DRABF DRDINT DR1DAY DR1LANG DR1MNRSP DR1HELPD DBQ095Z DBD100 DRQSPREP DR1STY DR1SKY DRQSDIET DR1TWS DRD340 DRD350A DRD350B DRD350C DRD350D DRD350E DRD350F DRD350G DRD350H DRD350I DRD350J DRD360 DRD370A DRD370B DRD370C DRD370D DRD370E DRD370F DRD370G DRD370H DRD370I DRD370J DRD370K DRD370L DRD370M DRD370N DRD370O DRD370P DRD370Q DRD370R DRD370S DRD370T DRD370U</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBERU1PX0kgXHQgLi5cbiJ9 -->
 <pre><code>Processing SAS dataset DEMO_I    ..</code></pre>
@@ -1989,12 +2107,37 @@ simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): ca
 <!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBMQkRCUEJMQyBMQkRCQ0RMQyBMQkRUSEdMQ1xuIn0= -->
 <pre><code>No translation table is available for SEQNTranslated columns: LBDBPBLC LBDBCDLC LBDTHGLC</code></pre>
 <!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBVTV9JIFx0IC4uXG4ifQ== -->
+<pre><code>Processing SAS dataset UM_I      ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkRVQkFMQyBVUkRVQ0RMQyBVUkRVQ09MQyBVUkRVQ1NMQyBVUkRVTU5MQyBVUkRVUEJMQyBVUkRVU0JMQyBVUkRVU05MQyBVUkRVU1JMQyBVUkRVVExMQyBVUkRVVFVMQyBVUkRVVVJMQ1xuc2ltcGxlV2FybmluZyBpbiBkb3dubG9hZC5maWxlKHVybCwgdGYsIG1vZGUgPSBcIndiXCIsIHF1aWV0ID0gVFJVRSk6IGNhbm5vdCBvcGVuIFVSTCAnaHR0cHM6Ly93d3duLmNkYy5nb3YvTmNocy9OaGFuZXMvMjAxNS0yMDE2L0VQSF9JLlhQVCc6IEhUVFAgc3RhdHVzIHdhcyAnNDA0IE5vdCBGb3VuZCdcbiJ9 -->
+<pre><code>No translation table is available for SEQNTranslated columns: URDUBALC URDUCDLC URDUCOLC URDUCSLC URDUMNLC URDUPBLC URDUSBLC URDUSNLC URDUSRLC URDUTLLC URDUTULC URDUURLC
+simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/EPH_I.XPT': HTTP status was '404 Not Found'</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBFUEhQUF9JIFx0IC4uXG4ifQ== -->
+<pre><code>Processing SAS dataset EPHPP_I   ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkRCUDNMQyBVUkRCUEhMQyBVUkRCUEZMQyBVUkRCUFNMQyBVUkRUTENMQyBVUkRUUlNMQyBVUkRCVVBMQyBVUkRFUEJMQyBVUkRNUEJMQyBVUkRQUEJMQyBVUkQxNERMQyBVUkREQ0JMQ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URDBP3LC URDBPHLC URDBPFLC URDBPSLC URDTLCLC URDTRSLC URDBUPLC URDEPBLC URDMPBLC URDPPBLC URD14DLC URDDCBLC</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBQSFRIVEVfSSBcdCAuLlxuIn0= -->
+<pre><code>Processing SAS dataset PHTHTE_I      ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkRDTlBMQyBVUkRDT1BMQyBVUkRFQ1BMQyBVUkRISUJMQyBVUkRNQlBMQyBVUkRNQzFMQyBVUkRNQ09MQyBVUkRNRVBMQyBVUkRNSEJMQyBVUkRNSEhMQyBVUkRNQ0hMQyBVUkRNSFBMQyBVUkRNSUJMQyBVUkRNTlBMQyBVUkRNT0hMQyBVUkRNWlBMQ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URDCNPLC URDCOPLC URDECPLC URDHIBLC URDMBPLC URDMC1LC URDMCOLC URDMEPLC URDMHBLC URDMHHLC URDMCHLC URDMHPLC URDMIBLC URDMNPLC URDMOHLC URDMZPLC</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBQQUhfSSBcdCAuLlxuIn0= -->
+<pre><code>Processing SAS dataset PAH_I     ..</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBVUkRQMDFMQyBVUkRQMDNMQyBVUkRQMDRMQyBVUkRQMDZMQyBVUkRQMTBMQyBVUkRQMjVMQ1xuc2ltcGxlV2FybmluZyBpbiBkb3dubG9hZC5maWxlKHVybCwgdGYsIG1vZGUgPSBcIndiXCIsIHF1aWV0ID0gVFJVRSk6IGNhbm5vdCBvcGVuIFVSTCAnaHR0cHM6Ly93d3duLmNkYy5nb3YvTmNocy9OaGFuZXMvMjAxNS0yMDE2L1BQX0kuWFBUJzogSFRUUCBzdGF0dXMgd2FzICc0MDQgTm90IEZvdW5kJ1xuIn0= -->
+<pre><code>No translation table is available for SEQNTranslated columns: URDP01LC URDP03LC URDP04LC URDP06LC URDP10LC URDP25LC
+simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/PP_I.XPT': HTTP status was '404 Not Found'</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBEUjFUT1RfSSBcdCAuLlxuIn0= -->
 <pre><code>Processing SAS dataset DR1TOT_I      ..</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOQ29sdW1uIFwiRFIxLjMwMFwiIG5vdCBmb3VuZENvbHVtbiBcIkRSMS4zMjBaXCIgbm90IGZvdW5kQ29sdW1uIFwiRFIxLjMzMFpcIiBub3QgZm91bmRUcmFuc2xhdGVkIGNvbHVtbnM6IERSMURSU1RaIERSQUJGIERSRElOVCBEUjFEQVkgRFIxTEFORyBEUjFNUkVTUCBEUjFIRUxQIERCUTA5NVogREJEMTAwIERSUVNQUkVQIERSMVNUWSBEUjFTS1kgRFJRU0RJRVQgRFIxVFdTIERSRDM0MCBEUkQzNTBBIERSRDM1MEIgRFJEMzUwQyBEUkQzNTBEIERSRDM1MEUgRFJEMzUwRiBEUkQzNTBHIERSRDM1MEggRFJEMzUwSSBEUkQzNTBKIERSRDM2MCBEUkQzNzBBIERSRDM3MEIgRFJEMzcwQyBEUkQzNzBEIERSRDM3MEUgRFJEMzcwRiBEUkQzNzBHIERSRDM3MEggRFJEMzcwSSBEUkQzNzBKIERSRDM3MEsgRFJEMzcwTCBEUkQzNzBNIERSRDM3ME4gRFJEMzcwTyBEUkQzNzBQIERSRDM3MFEgRFJEMzcwUiBEUkQzNzBTIERSRDM3MFQgRFJEMzcwVVxuc2ltcGxlV2FybmluZyBpbiBkb3dubG9hZC5maWxlKHVybCwgdGYsIG1vZGUgPSBcIndiXCIsIHF1aWV0ID0gVFJVRSk6IGNhbm5vdCBvcGVuIFVSTCAnaHR0cHM6Ly93d3duLmNkYy5nb3YvTmNocy9OaGFuZXMvMjAxNS0yMDE2L0wyNlBQX0kuWFBUJzogSFRUUCBzdGF0dXMgd2FzICc0MDQgTm90IEZvdW5kJ1xuIn0= -->
-<pre><code>No translation table is available for SEQNColumn &quot;DR1.300&quot; not foundColumn &quot;DR1.320Z&quot; not foundColumn &quot;DR1.330Z&quot; not foundTranslated columns: DR1DRSTZ DRABF DRDINT DR1DAY DR1LANG DR1MRESP DR1HELP DBQ095Z DBD100 DRQSPREP DR1STY DR1SKY DRQSDIET DR1TWS DRD340 DRD350A DRD350B DRD350C DRD350D DRD350E DRD350F DRD350G DRD350H DRD350I DRD350J DRD360 DRD370A DRD370B DRD370C DRD370D DRD370E DRD370F DRD370G DRD370H DRD370I DRD370J DRD370K DRD370L DRD370M DRD370N DRD370O DRD370P DRD370Q DRD370R DRD370S DRD370T DRD370U
-simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/L26PP_I.XPT': HTTP status was '404 Not Found'</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOQ29sdW1uIFwiRFIxLjMwMFwiIG5vdCBmb3VuZENvbHVtbiBcIkRSMS4zMjBaXCIgbm90IGZvdW5kQ29sdW1uIFwiRFIxLjMzMFpcIiBub3QgZm91bmRUcmFuc2xhdGVkIGNvbHVtbnM6IERSMURSU1RaIERSQUJGIERSRElOVCBEUjFEQVkgRFIxTEFORyBEUjFNUkVTUCBEUjFIRUxQIERCUTA5NVogREJEMTAwIERSUVNQUkVQIERSMVNUWSBEUjFTS1kgRFJRU0RJRVQgRFIxVFdTIERSRDM0MCBEUkQzNTBBIERSRDM1MEIgRFJEMzUwQyBEUkQzNTBEIERSRDM1MEUgRFJEMzUwRiBEUkQzNTBHIERSRDM1MEggRFJEMzUwSSBEUkQzNTBKIERSRDM2MCBEUkQzNzBBIERSRDM3MEIgRFJEMzcwQyBEUkQzNzBEIERSRDM3MEUgRFJEMzcwRiBEUkQzNzBHIERSRDM3MEggRFJEMzcwSSBEUkQzNzBKIERSRDM3MEsgRFJEMzcwTCBEUkQzNzBNIERSRDM3ME4gRFJEMzcwTyBEUkQzNzBQIERSRDM3MFEgRFJEMzcwUiBEUkQzNzBTIERSRDM3MFQgRFJEMzcwVVxuIn0= -->
+<pre><code>No translation table is available for SEQNColumn &quot;DR1.300&quot; not foundColumn &quot;DR1.320Z&quot; not foundColumn &quot;DR1.330Z&quot; not foundTranslated columns: DR1DRSTZ DRABF DRDINT DR1DAY DR1LANG DR1MRESP DR1HELP DBQ095Z DBD100 DRQSPREP DR1STY DR1SKY DRQSDIET DR1TWS DRD340 DRD350A DRD350B DRD350C DRD350D DRD350E DRD350F DRD350G DRD350H DRD350I DRD350J DRD360 DRD370A DRD370B DRD370C DRD370D DRD370E DRD370F DRD370G DRD370H DRD370I DRD370J DRD370K DRD370L DRD370M DRD370N DRD370O DRD370P DRD370Q DRD370R DRD370S DRD370T DRD370U</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBERU1PX0ogXHQgLi5cbiJ9 -->
 <pre><code>Processing SAS dataset DEMO_J    ..</code></pre>
@@ -2005,22 +2148,37 @@ simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): ca
 <!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBQQkNEX0ogXHQgLi5cbiJ9 -->
 <pre><code>Processing SAS dataset PBCD_J    ..</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBMQkRCUEJMQyBMQkRCQ0RMQyBMQkRUSEdMQ1xuIn0= -->
-<pre><code>No translation table is available for SEQNTranslated columns: LBDBPBLC LBDBCDLC LBDTHGLC</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOVHJhbnNsYXRlZCBjb2x1bW5zOiBMQkRCUEJMQyBMQkRCQ0RMQyBMQkRUSEdMQ1xuc2ltcGxlV2FybmluZyBpbiBkb3dubG9hZC5maWxlKHVybCwgdGYsIG1vZGUgPSBcIndiXCIsIHF1aWV0ID0gVFJVRSk6IGNhbm5vdCBvcGVuIFVSTCAnaHR0cHM6Ly93d3duLmNkYy5nb3YvTmNocy9OaGFuZXMvMjAxNy0yMDE4L1VNX0ouWFBUJzogSFRUUCBzdGF0dXMgd2FzICc0MDQgTm90IEZvdW5kJ1xuXG5cbnNpbXBsZVdhcm5pbmcgaW4gZG93bmxvYWQuZmlsZSh1cmwsIHRmLCBtb2RlID0gXCJ3YlwiLCBxdWlldCA9IFRSVUUpOiBjYW5ub3Qgb3BlbiBVUkwgJ2h0dHBzOi8vd3d3bi5jZGMuZ292L05jaHMvTmhhbmVzLzIwMTctMjAxOC9FUEhfSi5YUFQnOiBIVFRQIHN0YXR1cyB3YXMgJzQwNCBOb3QgRm91bmQnXG5cblxuc2ltcGxlV2FybmluZyBpbiBkb3dubG9hZC5maWxlKHVybCwgdGYsIG1vZGUgPSBcIndiXCIsIHF1aWV0ID0gVFJVRSk6IGNhbm5vdCBvcGVuIFVSTCAnaHR0cHM6Ly93d3duLmNkYy5nb3YvTmNocy9OaGFuZXMvMjAxNy0yMDE4L0VQSFBQX0ouWFBUJzogSFRUUCBzdGF0dXMgd2FzICc0MDQgTm90IEZvdW5kJ1xuXG5cbnNpbXBsZVdhcm5pbmcgaW4gZG93bmxvYWQuZmlsZSh1cmwsIHRmLCBtb2RlID0gXCJ3YlwiLCBxdWlldCA9IFRSVUUpOiBjYW5ub3Qgb3BlbiBVUkwgJ2h0dHBzOi8vd3d3bi5jZGMuZ292L05jaHMvTmhhbmVzLzIwMTctMjAxOC9QSFRIVEVfSi5YUFQnOiBIVFRQIHN0YXR1cyB3YXMgJzQwNCBOb3QgRm91bmQnXG5cblxuc2ltcGxlV2FybmluZyBpbiBkb3dubG9hZC5maWxlKHVybCwgdGYsIG1vZGUgPSBcIndiXCIsIHF1aWV0ID0gVFJVRSk6IGNhbm5vdCBvcGVuIFVSTCAnaHR0cHM6Ly93d3duLmNkYy5nb3YvTmNocy9OaGFuZXMvMjAxNy0yMDE4L1BBSF9KLlhQVCc6IEhUVFAgc3RhdHVzIHdhcyAnNDA0IE5vdCBGb3VuZCdcblxuXG5zaW1wbGVXYXJuaW5nIGluIGRvd25sb2FkLmZpbGUodXJsLCB0ZiwgbW9kZSA9IFwid2JcIiwgcXVpZXQgPSBUUlVFKTogY2Fubm90IG9wZW4gVVJMICdodHRwczovL3d3d24uY2RjLmdvdi9OY2hzL05oYW5lcy8yMDE3LTIwMTgvUFBfSi5YUFQnOiBIVFRQIHN0YXR1cyB3YXMgJzQwNCBOb3QgRm91bmQnXG4ifQ== -->
+<pre><code>No translation table is available for SEQNTranslated columns: LBDBPBLC LBDBCDLC LBDTHGLC
+simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/UM_J.XPT': HTTP status was '404 Not Found'
+
+
+simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/EPH_J.XPT': HTTP status was '404 Not Found'
+
+
+simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/EPHPP_J.XPT': HTTP status was '404 Not Found'
+
+
+simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/PHTHTE_J.XPT': HTTP status was '404 Not Found'
+
+
+simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/PAH_J.XPT': HTTP status was '404 Not Found'
+
+
+simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/PP_J.XPT': HTTP status was '404 Not Found'</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUHJvY2Vzc2luZyBTQVMgZGF0YXNldCBEUjFUT1RfSiBcdCAuLlxuIn0= -->
 <pre><code>Processing SAS dataset DR1TOT_J      ..</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOQ29sdW1uIFwiRFIxLjMwMFwiIG5vdCBmb3VuZENvbHVtbiBcIkRSMS4zMjBaXCIgbm90IGZvdW5kQ29sdW1uIFwiRFIxLjMzMFpcIiBub3QgZm91bmRUcmFuc2xhdGVkIGNvbHVtbnM6IERSMURSU1RaIERSQUJGIERSRElOVCBEUjFEQVkgRFIxTEFORyBEUjFNUkVTUCBEUjFIRUxQIERCUTA5NVogREJEMTAwIERSUVNQUkVQIERSMVNUWSBEUjFTS1kgRFJRU0RJRVQgRFIxVFdTWiBEUkQzNDAgRFJEMzUwQSBEUkQzNTBCIERSRDM1MEMgRFJEMzUwRCBEUkQzNTBFIERSRDM1MEYgRFJEMzUwRyBEUkQzNTBIIERSRDM1MEkgRFJEMzUwSiBEUkQzNjAgRFJEMzcwQSBEUkQzNzBCIERSRDM3MEMgRFJEMzcwRCBEUkQzNzBFIERSRDM3MEYgRFJEMzcwRyBEUkQzNzBIIERSRDM3MEkgRFJEMzcwSiBEUkQzNzBLIERSRDM3MEwgRFJEMzcwTSBEUkQzNzBOIERSRDM3ME8gRFJEMzcwUCBEUkQzNzBRIERSRDM3MFIgRFJEMzcwUyBEUkQzNzBUIERSRDM3MFVcbnNpbXBsZVdhcm5pbmcgaW4gZG93bmxvYWQuZmlsZSh1cmwsIHRmLCBtb2RlID0gXCJ3YlwiLCBxdWlldCA9IFRSVUUpOiBjYW5ub3Qgb3BlbiBVUkwgJ2h0dHBzOi8vd3d3bi5jZGMuZ292L05jaHMvTmhhbmVzLzIwMTctMjAxOC9MMjZQUF9KLlhQVCc6IEhUVFAgc3RhdHVzIHdhcyAnNDA0IE5vdCBGb3VuZCdcbiJ9 -->
-<pre><code>No translation table is available for SEQNColumn &quot;DR1.300&quot; not foundColumn &quot;DR1.320Z&quot; not foundColumn &quot;DR1.330Z&quot; not foundTranslated columns: DR1DRSTZ DRABF DRDINT DR1DAY DR1LANG DR1MRESP DR1HELP DBQ095Z DBD100 DRQSPREP DR1STY DR1SKY DRQSDIET DR1TWSZ DRD340 DRD350A DRD350B DRD350C DRD350D DRD350E DRD350F DRD350G DRD350H DRD350I DRD350J DRD360 DRD370A DRD370B DRD370C DRD370D DRD370E DRD370F DRD370G DRD370H DRD370I DRD370J DRD370K DRD370L DRD370M DRD370N DRD370O DRD370P DRD370Q DRD370R DRD370S DRD370T DRD370U
-simpleWarning in download.file(url, tf, mode = &quot;wb&quot;, quiet = TRUE): cannot open URL 'https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/L26PP_J.XPT': HTTP status was '404 Not Found'</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiTm8gdHJhbnNsYXRpb24gdGFibGUgaXMgYXZhaWxhYmxlIGZvciBTRVFOQ29sdW1uIFwiRFIxLjMwMFwiIG5vdCBmb3VuZENvbHVtbiBcIkRSMS4zMjBaXCIgbm90IGZvdW5kQ29sdW1uIFwiRFIxLjMzMFpcIiBub3QgZm91bmRUcmFuc2xhdGVkIGNvbHVtbnM6IERSMURSU1RaIERSQUJGIERSRElOVCBEUjFEQVkgRFIxTEFORyBEUjFNUkVTUCBEUjFIRUxQIERCUTA5NVogREJEMTAwIERSUVNQUkVQIERSMVNUWSBEUjFTS1kgRFJRU0RJRVQgRFIxVFdTWiBEUkQzNDAgRFJEMzUwQSBEUkQzNTBCIERSRDM1MEMgRFJEMzUwRCBEUkQzNTBFIERSRDM1MEYgRFJEMzUwRyBEUkQzNTBIIERSRDM1MEkgRFJEMzUwSiBEUkQzNjAgRFJEMzcwQSBEUkQzNzBCIERSRDM3MEMgRFJEMzcwRCBEUkQzNzBFIERSRDM3MEYgRFJEMzcwRyBEUkQzNzBIIERSRDM3MEkgRFJEMzcwSiBEUkQzNzBLIERSRDM3MEwgRFJEMzcwTSBEUkQzNzBOIERSRDM3ME8gRFJEMzcwUCBEUkQzNzBRIERSRDM3MFIgRFJEMzcwUyBEUkQzNzBUIERSRDM3MFVcbiJ9 -->
+<pre><code>No translation table is available for SEQNColumn &quot;DR1.300&quot; not foundColumn &quot;DR1.320Z&quot; not foundColumn &quot;DR1.330Z&quot; not foundTranslated columns: DR1DRSTZ DRABF DRDINT DR1DAY DR1LANG DR1MRESP DR1HELP DBQ095Z DBD100 DRQSPREP DR1STY DR1SKY DRQSDIET DR1TWSZ DRD340 DRD350A DRD350B DRD350C DRD350D DRD350E DRD350F DRD350G DRD350H DRD350I DRD350J DRD360 DRD370A DRD370B DRD370C DRD370D DRD370E DRD370F DRD370G DRD370H DRD370I DRD370J DRD370K DRD370L DRD370M DRD370N DRD370O DRD370P DRD370Q DRD370R DRD370S DRD370T DRD370U</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>For some godforesaken reason, the CDC have not kept the same coding between survey years. Thus, have to recode on year-by-year basis. Then save this file to an RDS file which can be imported directly into R.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5cbnRvdGFsIDwtIE5VTExcblxuZm9yIChuIGluIDQ6MTApIHtcbiAgdGVtcCA8LSByZW1vdmVfYWxsX2xhYmVscyhsYWJlbF90b19jb2xuYW1lcyhyZWFkUkRTKHBhc3RlMChcImRhdGFcIiwgYWxwaGFiZXRfY29kZXNbbl0sIFwiLnJkc1wiKSkpKVxuICB0b3RhbCA8LSBhZGRfcm93cyh0b3RhbCwgdGVtcClcbn1cblxud3JpdGVfcmRzKHRvdGFsLCBcIm5oYW5lc19BTExfWUVBUlMucmRzXCIpXG5cbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5cbnRvdGFsIDwtIE5VTExcblxuZm9yIChuIGluIDQ6MTApIHtcbiAgdGVtcCA8LSByZW1vdmVfYWxsX2xhYmVscyhsYWJlbF90b19jb2xuYW1lcyhyZWFkUkRTKHBhc3RlMChcImRhdGFcIiwgYWxwaGFiZXRfY29kZXNbbl0sIFwiLnJkc1wiKSkpKVxuICB0b3RhbCA8LSBhZGRfcm93cyh0b3RhbCwgdGVtcClcbn1cbmBgYCJ9 -->
 <pre class="r"><code>
 
 total &lt;- NULL
@@ -2028,15 +2186,15 @@ total &lt;- NULL
 for (n in 4:10) {
   temp &lt;- remove_all_labels(label_to_colnames(readRDS(paste0(&quot;data&quot;, alphabet_codes[n], &quot;.rds&quot;))))
   total &lt;- add_rows(total, temp)
-}
-
-write_rds(total, &quot;nhanes_ALL_YEARS.rds&quot;)
-</code></pre>
+}</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gYWRkX3Jvd3ModG90YWwsIHRlbXApIDogY291bGQgbm90IGZpbmQgZnVuY3Rpb24gXCJhZGRfcm93c1wiXG4ifQ== -->
+<pre><code>Error in add_rows(total, temp) : could not find function &quot;add_rows&quot;</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiR2VuZXJhdGUgTkhBTkVTIGRhdGEgZm9yIHVzZSBpbiBEYXRhIFNjaWVuY2UgZm9yIEVTIgphdXRob3I6ICJNaXRjaGVsbCBQYWxtZXIiCmRhdGU6ICIwNy8wMi8yMDIxIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpJbmNsdWRlIHRoZSBuZWVkZWQgbGlicmFyaWVzLCBpbmNsdWRpbmcgbmhhbmVzQSwgd2hpY2ggaXMgYSBjb252ZW5pZW50IHdyYXBwZXIgbGlicmFyeSBmb3IgTkhBTkVTIGRhdGEuCgpgYGB7ciBzZXR1cH0KbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkobmhhbmVzQSkKbGlicmFyeShzamxhYmVsbGVkKSAjIGZvciBkZWFsaW5nIHdpdGggbGFiZWxsZWQgb2JqZWN0cwpgYGAKCiMjIERvd25sb2FkIGFuZCBtZXJnZSBldmVyeSB5ZWFyLCBzZWxlY3RlZCB0YWJsZXMgb2YgbmhhbmVzIGRhdGEgaW50byBvbmUgUiBEYXRhZmlsZQoKQ3JlYXRlIGEgbGlzdCBvZiBzdXJ2ZXkgeWVhcnMgdG8gZG93bmxvYWQuIFRoZW4gZ2VuZXJhdGUgYSBsaXN0IG9mIGFscGhhYmV0aWMgY29kZXMgdG8gZ28gd2l0aCB0aG9zZSB5ZWFycywgd2hpY2ggYXJlIGRlc2NlbmRpbmcgaW4gdGltZSBvcmRlci4KCmBgYHtyfQp5ZWFycyA8LSBjKAogICIxOTk5LTIwMDAiLCAiMjAwMS0yMDAyIiwgIjIwMDMtMjAwNCIsICIyMDA1LTIwMDYiLCAiMjAwNy0yMDA4IiwgIjIwMDktMjAxMCIsICIyMDExLTIwMTIiLCAiMjAxMy0yMDE0IiwgIjIwMTUtMjAxNiIsICIyMDE3LTIwMTgiCikKYWxwaGFiZXRfY29kZXMgPC0gIGMoIiIsIHBhc3RlMCgiXyIsIExFVFRFUlNbLTFdKSkKYGBgCgpDcmVhdGUgYSBsaXN0IG9mIGZpbGVzIHRvIGRvd25sb2FkCgpgYGB7cn0KZmlsZV9uYW1lcyA8LSBjKAogICMgIkRFTU8iLCAjIERlbW9ncmFwaGljIGluZm9ybWF0aW9uLCBpbmNsdWRpbmcgc3VydmV5IHdlaWdodGluZyAtIG5vdCBpbmNsdWRlZCBiZWNhdXNlIG5lZWRlZCB0byBnZW5lcmF0ZSB1bmlxdWUgCiAgIlBiQ2QiLCAgICMgQmxvb2QgdGVzdCByZXN1bHRzIGZvciBtZXRhbHMKICAiRFIxVE9UIiwgIyBEaWV0YXJ5IGluZm9ybWF0aW9uIGZyb20gZGF5IGJlZm9yZSBzdXJ2ZXksIGluY2x1ZGluZyBmaXNoLWNvbnN1bXB0aW9uIGluZm9ybWF0aW9uCiAgIkwyNlBQIiAgICMgUGVzdGljaWRlIHJlc2lkdWVzIGZvdW5kIGluIHVyaW5lCikKYGBgCgpMb29wIHRocm91Z2ggc3VydmV5LXllYXJzLCBkb3dubG9hZCBlYWNoIG9mIHRoZSBmaWxlcyBtZW50aW9uZWQgYWJvdmUgdXNpbmcgbmhhbmVzQSwgdHJhbnNsYXRlIHRoZSBjb2RpbmcuIG1lcmdlIGJhc2VkIG9uIHRoZWlyIGNvbW1vbiBzdXJ2ZXkgcmVzcG9uZGVudCBJRC4gU2tpcCBmaXJzdCB0aHJlZSB5ZWFycyBiZWNhdXNlIG5vIGJsb29kIHRlc3QgcmVzdWx0cyBleGlzdCBmb3IgdGhvc2UgeWVhcnMuCgpgYGB7cn0KCmV2ZXJ5X3llYXIgPC0gZGF0YS5mcmFtZSgpCgpmb3IgKHkgaW4gNDpsZW5ndGgoeWVhcnMpKSB7CiAgCiAgeWVhciA8LSB5ZWFyc1t5XQogIHllYXJfY29kZSA8LSBhbHBoYWJldF9jb2Rlc1t5XQogIAogIGRlbW9fdGFibGUgPC0gcGFzdGUwKCJERU1PIiwgeWVhcl9jb2RlKQogIHN1cnZleSA8LSBuaGFuZXMoZGVtb190YWJsZSkKICB0cmFuc2xhdGVkX3N1cnZleSA8LSBuaGFuZXNUcmFuc2xhdGUoZGVtb190YWJsZSwgbmFtZXMoc3VydmV5KSwgZGF0YT1zdXJ2ZXkpCgogIHRyYW5zbGF0ZWRfc3VydmV5JHllYXIgPC0geWVhcgogIAogIGZvciAoZiBpbiBmaWxlX25hbWVzKSB7ICAgIAogICAgdHJ5KHsKICAgICAgdGFibGVfbmFtZSA8LSBwYXN0ZTAoZiwgeWVhcl9jb2RlKQogICAgICByYXdfdGFibGUgPC0gbmhhbmVzKHRhYmxlX25hbWUpCiAgICAgIGlmICghaXMubnVsbChyYXdfdGFibGUpKSB7CiAgICAgICAgdHJhbnNsYXRlZF90YWJsZSA8LSBuaGFuZXNUcmFuc2xhdGUodGFibGVfbmFtZSwgbmFtZXMocmF3X3RhYmxlKSwgZGF0YT1yYXdfdGFibGUpCiAgICAgICAgdHJhbnNsYXRlZF9zdXJ2ZXkgPC0gdHJhbnNsYXRlZF9zdXJ2ZXkgJT4lIGxlZnRfam9pbih0cmFuc2xhdGVkX3RhYmxlLCBieSA9ICJTRVFOIikKICAgICAgfSAgICAKICAgIH0pCiAgfQogIAogIHdyaXRlX3Jkcyh0cmFuc2xhdGVkX3N1cnZleSwgcGFzdGUwKCJkYXRhIiwgeWVhcl9jb2RlLCAiLnJkcyIpKQogIAp9CmBgYAoKRm9yIHNvbWUgZ29kZm9yZXNha2VuIHJlYXNvbiwgdGhlIENEQyBoYXZlIG5vdCBrZXB0IHRoZSBzYW1lIGNvZGluZyBiZXR3ZWVuIHN1cnZleSB5ZWFycy4gVGh1cywgaGF2ZSB0byByZWNvZGUgb24geWVhci1ieS15ZWFyIGJhc2lzLiBUaGVuIHNhdmUgdGhpcyBmaWxlIHRvIGFuIFJEUyBmaWxlIHdoaWNoIGNhbiBiZSBpbXBvcnRlZCBkaXJlY3RseSBpbnRvIFIuCgpgYGB7cn0KCgp0b3RhbCA8LSBOVUxMCgpmb3IgKG4gaW4gNDoxMCkgewogIHRlbXAgPC0gcmVtb3ZlX2FsbF9sYWJlbHMobGFiZWxfdG9fY29sbmFtZXMocmVhZFJEUyhwYXN0ZTAoImRhdGEiLCBhbHBoYWJldF9jb2Rlc1tuXSwgIi5yZHMiKSkpKQogIHRvdGFsIDwtIGFkZF9yb3dzKHRvdGFsLCB0ZW1wKQp9Cgp3cml0ZV9yZHModG90YWwsICJuaGFuZXNfQUxMX1lFQVJTLnJkcyIpCgpgYGAK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiR2VuZXJhdGUgTkhBTkVTIGRhdGEgZm9yIHVzZSBpbiBEYXRhIFNjaWVuY2UgZm9yIEVTIgphdXRob3I6ICJNaXRjaGVsbCBQYWxtZXIiCmRhdGU6ICIwNy8wMi8yMDIxIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpJbmNsdWRlIHRoZSBuZWVkZWQgbGlicmFyaWVzLCBpbmNsdWRpbmcgbmhhbmVzQSwgd2hpY2ggaXMgYSBjb252ZW5pZW50IHdyYXBwZXIgbGlicmFyeSBmb3IgTkhBTkVTIGRhdGEuCgpgYGB7ciBzZXR1cH0KbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkobmhhbmVzQSkKbGlicmFyeShzamxhYmVsbGVkKSAjIGZvciBkZWFsaW5nIHdpdGggbGFiZWxsZWQgb2JqZWN0cwpsaWJyYXJ5KHNqbWlzYykKYGBgCgojIyBEb3dubG9hZCBhbmQgbWVyZ2UgZXZlcnkgeWVhciwgc2VsZWN0ZWQgdGFibGVzIG9mIG5oYW5lcyBkYXRhIGludG8gb25lIFIgRGF0YWZpbGUKCkNyZWF0ZSBhIGxpc3Qgb2Ygc3VydmV5IHllYXJzIHRvIGRvd25sb2FkLiBUaGVuIGdlbmVyYXRlIGEgbGlzdCBvZiBhbHBoYWJldGljIGNvZGVzIHRvIGdvIHdpdGggdGhvc2UgeWVhcnMsIHdoaWNoIGFyZSBkZXNjZW5kaW5nIGluIHRpbWUgb3JkZXIuCgpgYGB7cn0KeWVhcnMgPC0gYygKICAiMTk5OS0yMDAwIiwgIjIwMDEtMjAwMiIsICIyMDAzLTIwMDQiLCAiMjAwNS0yMDA2IiwgIjIwMDctMjAwOCIsICIyMDA5LTIwMTAiLCAiMjAxMS0yMDEyIiwgIjIwMTMtMjAxNCIsICIyMDE1LTIwMTYiLCAiMjAxNy0yMDE4IgopCmFscGhhYmV0X2NvZGVzIDwtICBjKCIiLCBwYXN0ZTAoIl8iLCBMRVRURVJTWy0xXSkpCmBgYAoKQ3JlYXRlIGEgbGlzdCBvZiBmaWxlcyB0byBkb3dubG9hZAoKYGBge3J9CmZpbGVfbmFtZXMgPC0gYygKICAjICJERU1PIiwgIyBEZW1vZ3JhcGhpYyBpbmZvcm1hdGlvbiwgaW5jbHVkaW5nIHN1cnZleSB3ZWlnaHRpbmcgLSBub3QgaW5jbHVkZWQgYmVjYXVzZSBuZWVkZWQgdG8gZ2VuZXJhdGUgdW5pcXVlIAogICJQYkNkIiwgICAjIEJsb29kIHRlc3QgcmVzdWx0cyBmb3IgbWV0YWxzCiAgIlVNIiwgICAgICMgTWV0YWwgaW4gdXJpbmUKICAiRVBIIiwgICAgIyBFbnZpcm9ubWVudGFsIHBoZW5vbHMKICAiRVBIUFAiLCAgIyBQZXJzb25hbCBDYXJlIGFuZCBDb25zdW1lciBQcm9kdWN0IENoZW1pY2FscyBhbmQgTWV0YWJvbGl0ZXMKICAiUEhUSFRFIiwgIyBQaHRoYWxhdGVzIC0gVXJpbmUKICAiUEFIIiwgICAgIyBQb2x5YXJvbWF0aWMgSHlkcm9jYXJib25zCiAgIlBQIiwgICAgICMgUGVzdGljaWRlcyAtIEVudmlyb25tZW50YWwKICAiRFIxVE9UIiAgIyBEaWV0YXJ5IGluZm9ybWF0aW9uIGZyb20gZGF5IGJlZm9yZSBzdXJ2ZXksIGluY2x1ZGluZyBmaXNoLWNvbnN1bXB0aW9uIGluZm9ybWF0aW9uCikKYGBgCgpMb29wIHRocm91Z2ggc3VydmV5LXllYXJzLCBkb3dubG9hZCBlYWNoIG9mIHRoZSBmaWxlcyBtZW50aW9uZWQgYWJvdmUgdXNpbmcgbmhhbmVzQSwgdHJhbnNsYXRlIHRoZSBjb2RpbmcuIG1lcmdlIGJhc2VkIG9uIHRoZWlyIGNvbW1vbiBzdXJ2ZXkgcmVzcG9uZGVudCBJRC4gU2tpcCBmaXJzdCB0aHJlZSB5ZWFycyBiZWNhdXNlIG5vIGJsb29kIHRlc3QgcmVzdWx0cyBleGlzdCBmb3IgdGhvc2UgeWVhcnMuCgpgYGB7cn0KCmV2ZXJ5X3llYXIgPC0gZGF0YS5mcmFtZSgpCgpmb3IgKHkgaW4gNDpsZW5ndGgoeWVhcnMpKSB7CiAgCiAgeWVhciA8LSB5ZWFyc1t5XQogIHllYXJfY29kZSA8LSBhbHBoYWJldF9jb2Rlc1t5XQogIAogIGRlbW9fdGFibGUgPC0gcGFzdGUwKCJERU1PIiwgeWVhcl9jb2RlKQogIHN1cnZleSA8LSBuaGFuZXMoZGVtb190YWJsZSkKICB0cmFuc2xhdGVkX3N1cnZleSA8LSBuaGFuZXNUcmFuc2xhdGUoZGVtb190YWJsZSwgbmFtZXMoc3VydmV5KSwgZGF0YT1zdXJ2ZXkpCgogIHRyYW5zbGF0ZWRfc3VydmV5JHllYXIgPC0geWVhcgogIAogIGZvciAoZiBpbiBmaWxlX25hbWVzKSB7ICAgIAogICAgdHJ5KHsKICAgICAgdGFibGVfbmFtZSA8LSBwYXN0ZTAoZiwgeWVhcl9jb2RlKQogICAgICByYXdfdGFibGUgPC0gbmhhbmVzKHRhYmxlX25hbWUpCiAgICAgIGlmICghaXMubnVsbChyYXdfdGFibGUpKSB7CiAgICAgICAgdHJhbnNsYXRlZF90YWJsZSA8LSBuaGFuZXNUcmFuc2xhdGUodGFibGVfbmFtZSwgbmFtZXMocmF3X3RhYmxlKSwgZGF0YT1yYXdfdGFibGUpCiAgICAgICAgdHJhbnNsYXRlZF9zdXJ2ZXkgPC0gdHJhbnNsYXRlZF9zdXJ2ZXkgJT4lIGxlZnRfam9pbih0cmFuc2xhdGVkX3RhYmxlLCBieSA9ICJTRVFOIikKICAgICAgfSAgICAKICAgIH0pCiAgfQogIAogIHdyaXRlX3Jkcyh0cmFuc2xhdGVkX3N1cnZleSwgcGFzdGUwKCJkYXRhIiwgeWVhcl9jb2RlLCAiLnJkcyIpKQogIAp9CmBgYAoKRm9yIHNvbWUgZ29kZm9yZXNha2VuIHJlYXNvbiwgdGhlIENEQyBoYXZlIG5vdCBrZXB0IHRoZSBzYW1lIGNvZGluZyBiZXR3ZWVuIHN1cnZleSB5ZWFycy4gVGh1cywgaGF2ZSB0byByZWNvZGUgb24geWVhci1ieS15ZWFyIGJhc2lzLiBUaGVuIHNhdmUgdGhpcyBmaWxlIHRvIGFuIFJEUyBmaWxlIHdoaWNoIGNhbiBiZSBpbXBvcnRlZCBkaXJlY3RseSBpbnRvIFIuCgpgYGB7cn0KCgp0b3RhbCA8LSBOVUxMCgpmb3IgKG4gaW4gNDoxMCkgewogIHRlbXAgPC0gcmVtb3ZlX2FsbF9sYWJlbHMobGFiZWxfdG9fY29sbmFtZXMocmVhZFJEUyhwYXN0ZTAoImRhdGEiLCBhbHBoYWJldF9jb2Rlc1tuXSwgIi5yZHMiKSkpKQogIHRvdGFsIDwtIGFkZF9yb3dzKHRvdGFsLCB0ZW1wKQp9Cgp3cml0ZV9yZHModG90YWwsICJuaGFuZXNfQUxMX1lFQVJTLnJkcyIpCgpgYGAK</div>
 
 
 
